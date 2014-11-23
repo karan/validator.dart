@@ -11,10 +11,10 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 
 | Method | Description | Status |
 | ------ | ----------- | ------ |
-| equals(str, comparison) | check if the string matches the comparison. | x |
-| contains(str, seed) | check if the string contains the seed. | x |
+| equals(str, comparison) | check if the string matches the comparison. | ✓ |
+| contains(str, seed) | check if the string contains the seed. | ✓ |
 | matches(str, pattern [, modifiers]) | check if string matches the pattern. Either matches('foo', /foo/i) or matches('foo', 'foo', 'i'). | x |
-| isEmail(str) | check if the string is an email. | x |
+| isEmail(str) | check if the string is an email. | ✓ |
 | isURL(str [, options]) | check if the string is an URL. | x |
 | isFQDN(str [, options]) | check if the string is a fully qualified domain name (e.g. domain.com). options is an object which defaults to { require_tld: true, allow_underscores: false }. | x |
 | isIP(str [, version]) | check if the string is an IP (version 4 or 6). | x |
