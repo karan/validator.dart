@@ -13,6 +13,17 @@ void testEquals() {
   });
 }
 
+void testContains() {
+  group('Test contains', () {
+    test('empty strings', () => expect(v.contains('', ''), true));
+    test('first empty string', () => expect(v.contains('', 'hello'), false));
+    test('second empty string', () => expect(v.contains('hello', ''), true));
+    test('contains string', () => expect(v.contains('hello', 'ello'), true));
+    test('case sensitive', () => expect(v.contains('Hello', 'he'), false));
+  });
+}
+
 void main() {
   testEquals();
+  testContains();
 }
