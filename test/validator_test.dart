@@ -132,11 +132,33 @@ void testIsURL() {
   });
 }
 
+void testIsIP() {
+  test_this({
+    'validator': v.isIP,
+    'args': [],
+    'valid': [
+      '127.0.0.1',
+      '0.0.0.0',
+      '255.255.255.255',
+      '1.2.3.4',
+      '::1',
+      '2001:db8:0000:1:1:1:1:1'
+      ],
+    'invalid': [
+      'abc',
+      '256.0.0.0',
+      '0.0.0.256',
+      '26.0.0.256'
+      ]
+  });
+}
+
 void main() {
   testEquals();
   testContains();
   testIsEmail();
   testIsURL();
+  testIsIP();
 
   print('All tests complete');
 }

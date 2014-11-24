@@ -141,7 +141,7 @@ bool isIP(String str, [version]) {
       return false;
     }
     var parts = str.split('.');
-    parts.sort();
+    parts.sort((a, b) => int.parse(a) - int.parse(b));
     return int.parse(parts[3]) <= 255;
   }
   return version == '6' && ipv6.hasMatch(str);
