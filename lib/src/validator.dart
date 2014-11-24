@@ -50,7 +50,7 @@ bool isURL(String str, [options]) {
     if (options['protocols'].indexOf(protocol) == -1) {
       return false;
     }
-  } else if (options['require_protocols']) {
+  } else if (options['require_protocols'] == true) {
     return false;
   }
   str = split.join('://');
@@ -59,7 +59,7 @@ bool isURL(String str, [options]) {
   split = str.split('#');
   str = shift(split);
   hash = split.join('#');
-  if (hash != null && new RegExp(r'\s').hasMatch(hash)) {
+  if (hash != null && hash != "" && new RegExp(r'\s').hasMatch(hash)) {
     return false;
   }
 
@@ -67,7 +67,7 @@ bool isURL(String str, [options]) {
   split = str.split('?');
   str = shift(split);
   query = split.join('?');
-  if (query != null && new RegExp(r'\s').hasMatch(query)) {
+  if (query != null && query != "" && new RegExp(r'\s').hasMatch(query)) {
     return false;
   }
 
@@ -75,7 +75,7 @@ bool isURL(String str, [options]) {
   split = str.split('/');
   str = shift(split);
   path = split.join('/');
-  if (path != null && new RegExp(r'\s').hasMatch(path)) {
+  if (path != null && path != "" && new RegExp(r'\s').hasMatch(path)) {
     return false;
   }
 
@@ -86,11 +86,11 @@ bool isURL(String str, [options]) {
     if (auth.indexOf(':') >= 0) {
       auth = auth.split(':');
       user = shift(auth);
-      if (new RegExp(r'^\S+$').hasMatch(user)) {
+      if (!new RegExp(r'^\S+$').hasMatch(user)) {
         return false;
       }
       pass = auth.join(':');
-      if (new RegExp(r'^\S*$').hasMatch(user)) {
+      if (!new RegExp(r'^\S*$').hasMatch(user)) {
         return false;
       }
     }
@@ -100,10 +100,14 @@ bool isURL(String str, [options]) {
   hostname = split.join('@');
   split = hostname.split(':');
   host = shift(split);
-  if (split.length) {
+  if (split.length > 0) {
     port_str = split.join(':');
-    port = int.parse(port_str, radix: 10);
-    if (new RegExp(r'^[0-9]+$').hasMatch(port_str) || port <= 0 ||
+    try {
+      port = int.parse(port_str, radix: 10);
+    } catch (e) {
+      return false;
+    }
+    if (!new RegExp(r'^[0-9]+$').hasMatch(port_str) || port <= 0 ||
         port > 65535) {
       return false;
     }
@@ -113,12 +117,12 @@ bool isURL(String str, [options]) {
     return false;
   }
 
-  if (options['host_whitelist'] &&
+  if (options['host_whitelist'] == true &&
       options['host_whitelist'].indexOf(host) == -1) {
     return false;
   }
 
-  if (options['host_blacklist'] &&
+  if (options['host_blacklist'] == true &&
       options['host_blacklist'].indexOf(host) != -1) {
     return false;
   }
@@ -130,14 +134,15 @@ bool isURL(String str, [options]) {
 // check if the string is an IP (version 4 or 6)
 bool isIP(String str, [version]) {
   version = version.toString();
-  if (version == null) {
+  if (version == 'null') {
     return isIP(str, 4) || isIP(str, 6);
   } else if (version == '4') {
     if (!ipv4Maybe.hasMatch(str)) {
       return false;
     }
-    var parts = str.split('.').sort((a, b) => a - b);
-    return parts[3] <= 255;
+    var parts = str.split('.');
+    parts.sort();
+    return int.parse(parts[3]) <= 255;
   }
   return version == '6' && ipv6.hasMatch(str);
 }
@@ -153,7 +158,7 @@ bool isFQDN(str, [options]) {
   List parts = str.split('.');
   if (options['require_tld']) {
     var tld = parts.removeLast();
-    if (parts.length == 0 || !new RegExp(r'^[a-z]{2, 1}$').hasMatch(tld)) {
+    if (parts.length == 0 || !new RegExp(r'^[a-z]{2,}$').hasMatch(tld)) {
       return false;
     }
   }
