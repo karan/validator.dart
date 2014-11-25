@@ -308,6 +308,39 @@ void testIsHexColor() {
   });
 }
 
+void testIsLowercase() {
+  test_this({
+    'validator': v.isLowercase,
+    'args': [],
+    'valid': [
+      'abc',
+      'abc123',
+      'l.o.w.e.r.',
+      'tr竪s 端ber'
+      ],
+    'invalid': [
+      'f00Bar',
+      'uUu'
+      ],
+  });
+}
+
+void testIsUppercase() {
+  test_this({
+    'validator': v.isUppercase,
+    'args': [],
+    'valid': [
+      'ABC',
+      'ABC123',
+      'U.P.P.E.R.'
+      ],
+    'invalid': [
+      'f00Bar',
+      'uUu'
+      ],
+  });
+}
+
 
 void main() {
   testEquals();
@@ -323,6 +356,8 @@ void main() {
   testIsFloat();
   testIsHexadecimal();
   testIsHexColor();
+  testIsLowercase();
+  testIsUppercase();
 
   print('All tests complete');
 }
