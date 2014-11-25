@@ -2,7 +2,7 @@ library validator_test;
 
 import 'package:validator/validator.dart' as v;
 
-void test_this(Map options) {
+void test(Map options) {
   List args = options['args'];
   if (options['valid'] != null) {
     List toTest = options['valid'];
@@ -31,7 +31,7 @@ void test_this(Map options) {
 }
 
 void testEquals() {
-  test_this({
+  test({
     'validator': v.equals,
     'valid': ['abc'],
     'invalid': ['Abc', '123'],
@@ -40,7 +40,7 @@ void testEquals() {
 }
 
 void testContains() {
-  test_this({
+  test({
     'validator': v.contains,
     'args': ['foo'],
     'valid': ['foo', 'foobar', 'bazfoo'],
@@ -49,7 +49,7 @@ void testContains() {
 }
 
 void testIsEmail() {
-  test_this({
+  test({
     'validator': v.isEmail,
     'args': [],
     'valid': [
@@ -74,7 +74,7 @@ void testIsEmail() {
 }
 
 void testIsURL() {
-  test_this({
+  test({
     'validator': v.isURL,
     'args': [],
     'valid': [
@@ -133,7 +133,7 @@ void testIsURL() {
 }
 
 void testIsIP() {
-  test_this({
+  test({
     'validator': v.isIP,
     'args': [],
     'valid': [
@@ -154,7 +154,7 @@ void testIsIP() {
 }
 
 void testIsAlpha() {
-  test_this({
+  test({
     'validator': v.isAlpha,
     'args': [],
     'valid': [
@@ -171,7 +171,7 @@ void testIsAlpha() {
 }
 
 void testIsAlphanumeric() {
-  test_this({
+  test({
     'validator': v.isAlphanumeric,
     'args': [],
     'valid': [
@@ -188,7 +188,7 @@ void testIsAlphanumeric() {
 }
 
 void testIsNumeric() {
-  test_this({
+  test({
     'validator': v.isNumeric,
     'args': [],
     'valid': [
@@ -208,7 +208,7 @@ void testIsNumeric() {
 }
 
 void testIsBase64() {
-  test_this({
+  test({
     'validator': v.isBase64,
     'args': [],
     'valid': [
@@ -233,7 +233,7 @@ void testIsBase64() {
 }
 
 void testIsInt() {
-  test_this({
+  test({
     'validator': v.isInt,
     'args': [],
     'valid': [
@@ -255,7 +255,7 @@ void testIsInt() {
 }
 
 void testIsFloat() {
-  test_this({
+  test({
     'validator': v.isFloat,
     'args': [],
     'valid': [
@@ -275,7 +275,7 @@ void testIsFloat() {
 }
 
 void testIsHexadecimal() {
-  test_this({
+  test({
     'validator': v.isHexadecimal,
     'args': [],
     'valid': [
@@ -291,7 +291,7 @@ void testIsHexadecimal() {
 }
 
 void testIsHexColor() {
-  test_this({
+  test({
     'validator': v.isHexColor,
     'args': [],
     'valid': [
@@ -309,7 +309,7 @@ void testIsHexColor() {
 }
 
 void testIsLowercase() {
-  test_this({
+  test({
     'validator': v.isLowercase,
     'args': [],
     'valid': [
@@ -326,7 +326,7 @@ void testIsLowercase() {
 }
 
 void testIsUppercase() {
-  test_this({
+  test({
     'validator': v.isUppercase,
     'args': [],
     'valid': [
@@ -342,7 +342,7 @@ void testIsUppercase() {
 }
 
 void testIsDivisibleBy() {
-  test_this({
+  test({
     'validator': v.isDivisibleBy,
     'args': ['2'],
     'valid': [
