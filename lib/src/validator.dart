@@ -262,5 +262,9 @@ bool isUppercase(String str) {
 
 // check if the string is a number that's divisible by another
 bool isDivisibleBy(String str, n) {
-  return double.parse(str) % int.parse(n) == 0;
+  try {
+    return double.parse(str) % int.parse(n) == 0;
+  } catch(e) {
+    return false;
+  }
 }

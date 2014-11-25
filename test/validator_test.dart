@@ -341,6 +341,24 @@ void testIsUppercase() {
   });
 }
 
+void testIsDivisibleBy() {
+  test_this({
+    'validator': v.isDivisibleBy,
+    'args': ['2'],
+    'valid': [
+      '2',
+      '4',
+      '100',
+      '-10'
+      ],
+    'invalid': [
+      '1',
+      '-1',
+      'abc'
+      ]
+  });
+}
+
 
 void main() {
   testEquals();
@@ -358,6 +376,7 @@ void main() {
   testIsHexColor();
   testIsLowercase();
   testIsUppercase();
+  testIsDivisibleBy();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
