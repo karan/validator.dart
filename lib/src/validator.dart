@@ -9,7 +9,7 @@ RegExp alpha = new RegExp(r'^[a-zA-Z]+$');
 RegExp alphanumeric = new RegExp(r'^[a-zA-Z0-9]+$');
 RegExp numeric = new RegExp(r'^-?[0-9]+$');
 RegExp _int = new RegExp(r'^(?:-?(?:0|[1-9][0-9]*))$');
-RegExp float = new RegExp(r'^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$');
+RegExp _float = new RegExp(r'^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$');
 RegExp hexadecimal = new RegExp(r'^[0-9a-fA-F]+$');
 RegExp hexcolor = new RegExp(r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$');
 
@@ -232,7 +232,7 @@ bool isInt(String str) {
 
 // check if the string is a float
 bool isFloat(String str) {
-  return float.hasMatch(str);
+  return _float.hasMatch(str);
 }
 
 
@@ -257,4 +257,10 @@ bool isLowercase(String str) {
 // check if the string is uppercase
 bool isUppercase(String str) {
   return str == str.toUpperCase();
+}
+
+
+// check if the string is a number that's divisible by another
+bool isDivisibleBy(String str, n) {
+  return double.parse(str) % int.parse(n) == 0;
 }
