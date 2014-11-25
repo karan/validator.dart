@@ -18,16 +18,16 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isURL(str [, options]) | check if the string is an URL. | ✓ |
 | isFQDN(str [, options]) | check if the string is a fully qualified domain name (e.g. `domain.com`). `options` is an object which defaults to `{ require_tld: true, allow_underscores: false }`. | ✓ |
 | isIP(str [, version]) | check if the string is an IP (`version` `4` or `6`). | ✓ |
-| isAlpha(str) | check if the string contains only letters (a-zA-Z). | x |
-| isNumeric(str) | check if the string contains only numbers. | x |
-| isAlphanumeric(str) | check if the string contains only letters and numbers. | x |
-| isBase64(str) | check if a string is base64 encoded. | x |
-| isHexadecimal(str) | check if the string is a hexadecimal number. | x |
-| isHexColor(str) | check if the string is a hexadecimal color. | x |
-| isLowercase(str) | check if the string is lowercase. | x |
+| isAlpha(str) | check if the string contains only letters (a-zA-Z). | ✓ |
+| isNumeric(str) | check if the string contains only numbers. | ✓ |
+| isAlphanumeric(str) | check if the string contains only letters and numbers. | ✓ |
+| isBase64(str) | check if a string is base64 encoded. | ✓ |
+| isHexadecimal(str) | check if the string is a hexadecimal number. | ✓ |
+| isHexColor(str) | check if the string is a hexadecimal color. | ✓ |
+| isLowercase(str) | check if the string is lowercase. | ✓ |
 | isUppercase(str) | check if the string is uppercase. | x |
-| isInt(str) | check if the string is an integer. | x |
-| isFloat(str) | check if the string is a float. | x |
+| isInt(str) | check if the string is an integer. | ✓ |
+| isFloat(str) | check if the string is a float. | ✓ |
 | isDivisibleBy(str, number) | check if the string is a number that's divisible by another. | x |
 | isNull(str) | check if the string is null. | x |
 | isLength(str, min [, max]) | check if the string's length falls in a range. Note: this function takes into account surrogate pairs. | x |
