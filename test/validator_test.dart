@@ -153,12 +153,30 @@ void testIsIP() {
   });
 }
 
+void testIsAlpha() {
+  test_this({
+    'validator': v.isAlpha,
+    'args': [],
+    'valid': [
+      'abc',
+      'ABC',
+      'FoObAr'
+      ],
+    'invalid': [
+      'abc1',
+      'AB  C',
+      ''
+      ],
+  });
+}
+
 void main() {
   testEquals();
   testContains();
   testIsEmail();
   testIsURL();
   testIsIP();
+  testIsAlpha();
 
   print('All tests complete');
 }
