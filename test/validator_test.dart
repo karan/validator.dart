@@ -359,5 +359,7 @@ void main() {
   testIsLowercase();
   testIsUppercase();
 
-  print('All tests complete');
+  print('-------------------------------------');
+  print('All tests in validator.dart complete.');
+  print('-------------------------------------');
 }
