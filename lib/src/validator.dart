@@ -246,3 +246,15 @@ bool isHexadecimal(String str) {
 bool isHexColor(String str) {
   return hexcolor.hasMatch(str);
 }
+
+
+// check if the string is lowercase
+bool isLowercase(String str) {
+  return str == str.toLowerCase();
+}
+
+
+// check if the string is uppercase
+bool isUppercase(String str) {
+  return str == str.toUpperCase();
+}
