@@ -1,18 +1,32 @@
 part of validator;
 
 RegExp email = new RegExp(r"^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))$");
+
 RegExp ipv4Maybe = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
 RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$');
+
+RegExp alpha = new RegExp(r'^[a-zA-Z]+$');
+RegExp alphanumeric = new RegExp(r'^[a-zA-Z0-9]+$');
+RegExp numeric = new RegExp(r'^-?[0-9]+$');
+RegExp _int = new RegExp(r'^(?:-?(?:0|[1-9][0-9]*))$');
+RegExp float = new RegExp(r'^(?:-?(?:[0-9]+))?(?:\.[0-9]*)?(?:[eE][\+\-]?(?:[0-9]+))?$');
+RegExp hexadecimal = new RegExp(r'^[0-9a-fA-F]+$');
+RegExp hexcolor = new RegExp(r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$');
+
+RegExp base64 = new RegExp(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$');
+
 
 // check if the string matches the comparison
 bool equals(String str, comparison) {
   return str == comparison.toString();
 }
 
+
 // check if the string contains the seed
 bool contains(String str, seed) {
   return str.indexOf(seed.toString()) >= 0;
 }
+
 
 // check if string matches the pattern. Either matches('foo', /foo/i) or matches('foo', 'foo', 'i').
 //bool matches(String str, pattern, [modifiers]) {
@@ -21,9 +35,11 @@ bool contains(String str, seed) {
 ////  print(reflect(pattern).type.reflectedType.toString());
 //}
 
+
 bool isEmail(String str) {
   return email.hasMatch(str.toLowerCase());
 }
+
 
 bool isURL(String str, [options]) {
   if (str == null || str.length == 0 || str.length > 2083 ||
@@ -131,6 +147,7 @@ bool isURL(String str, [options]) {
 
 }
 
+
 // check if the string is an IP (version 4 or 6)
 bool isIP(String str, [version]) {
   version = version.toString();
@@ -146,6 +163,7 @@ bool isIP(String str, [version]) {
   }
   return version == '6' && ipv6.hasMatch(str);
 }
+
 
 // check if the string is a fully qualified domain name (e.g. domain.com).
 bool isFQDN(str, [options]) {
@@ -179,4 +197,52 @@ bool isFQDN(str, [options]) {
     }
   }
   return true;
+}
+
+
+// check if the string contains only letters (a-zA-Z).
+bool isAlpha(String str) {
+  return alpha.hasMatch(str);
+}
+
+
+// check if the string contains only numbers
+bool isNumeric(String str) {
+  return numeric.hasMatch(str);
+}
+
+
+// check if the string contains only letters and numbers
+bool isAlphanumeric(String str) {
+  return alphanumeric.hasMatch(str);
+}
+
+
+// check if a string is base64 encoded
+bool isBase64(String str) {
+  return base64.hasMatch(str);
+}
+
+
+// check if the string is an integer
+bool isInt(String str) {
+  return _int.hasMatch(str);
+}
+
+
+// check if the string is a float
+bool isFloat(String str) {
+  return float.hasMatch(str);
+}
+
+
+// check if the string is a hexadecimal number
+bool isHexadecimal(String str) {
+  return hexadecimal.hasMatch(str);
+}
+
+
+// check if the string is a hexadecimal color
+bool isHexColor(String str) {
+  return hexcolor.hasMatch(str);
 }
