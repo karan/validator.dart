@@ -2,6 +2,7 @@ library validator_test;
 
 import 'package:validator/validator.dart' as v;
 
+
 void test(Map options) {
   List args = options['args'];
   if (options['valid'] != null) {
@@ -30,6 +31,7 @@ void test(Map options) {
   }
 }
 
+
 void testEquals() {
   test({
     'validator': v.equals,
@@ -39,6 +41,7 @@ void testEquals() {
   });
 }
 
+
 void testContains() {
   test({
     'validator': v.contains,
@@ -47,6 +50,7 @@ void testContains() {
     'invalid': ['Foo', 'bar', '']
   });
 }
+
 
 void testIsEmail() {
   test({
@@ -72,6 +76,7 @@ void testIsEmail() {
       ]
   });
 }
+
 
 void testIsURL() {
   test({
@@ -132,6 +137,7 @@ void testIsURL() {
   });
 }
 
+
 void testIsIP() {
   test({
     'validator': v.isIP,
@@ -153,6 +159,7 @@ void testIsIP() {
   });
 }
 
+
 void testIsAlpha() {
   test({
     'validator': v.isAlpha,
@@ -169,6 +176,7 @@ void testIsAlpha() {
       ],
   });
 }
+
 
 void testIsAlphanumeric() {
   test({
@@ -207,6 +215,7 @@ void testIsNumeric() {
   });
 }
 
+
 void testIsBase64() {
   test({
     'validator': v.isBase64,
@@ -232,6 +241,7 @@ void testIsBase64() {
   });
 }
 
+
 void testIsInt() {
   test({
     'validator': v.isInt,
@@ -254,6 +264,7 @@ void testIsInt() {
   });
 }
 
+
 void testIsFloat() {
   test({
     'validator': v.isFloat,
@@ -274,6 +285,7 @@ void testIsFloat() {
   });
 }
 
+
 void testIsHexadecimal() {
   test({
     'validator': v.isHexadecimal,
@@ -289,6 +301,7 @@ void testIsHexadecimal() {
       ],
   });
 }
+
 
 void testIsHexColor() {
   test({
@@ -308,6 +321,7 @@ void testIsHexColor() {
   });
 }
 
+
 void testIsLowercase() {
   test({
     'validator': v.isLowercase,
@@ -325,6 +339,7 @@ void testIsLowercase() {
   });
 }
 
+
 void testIsUppercase() {
   test({
     'validator': v.isUppercase,
@@ -340,6 +355,7 @@ void testIsUppercase() {
       ],
   });
 }
+
 
 void testIsDivisibleBy() {
   test({
