@@ -32,7 +32,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isUppercase(str) | check if the string is uppercase. | ✓ |
 | isInt(str) | check if the string is an integer. | ✓ |
 | isFloat(str) | check if the string is a float. | ✓ |
-| isDivisibleBy(str, number) | check if the string is a number that's divisible by another. | x |
+| isDivisibleBy(str, number) | check if the string is a number that's divisible by another. | ✓ |
 | isNull(str) | check if the string is null. | x |
 | isLength(str, min [, max]) | check if the string's length falls in a range. Note: this function takes into account surrogate pairs. | x |
 | isByteLength(str, min [, max]) | check if the string's length (in bytes) falls in a range. | x |
