@@ -207,6 +207,108 @@ void testIsNumeric() {
   });
 }
 
+void testIsBase64() {
+  test_this({
+    'validator': v.isBase64,
+    'args': [],
+    'valid': [
+      'TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4=',
+      'Vml2YW11cyBmZXJtZW50dW0gc2VtcGVyIHBvcnRhLg==',
+      'U3VzcGVuZGlzc2UgbGVjdHVzIGxlbw==',
+      'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuMPNS1Ufof9EW/M98FNw'+
+      'UAKrwflsqVxaxQjBQnHQmiI7Vac40t8x7pIb8gLGV6wL7sBTJiPovJ0V7y7oc0Ye'+
+      'rhKh0Rm4skP2z/jHwwZICgGzBvA0rH8xlhUiTvcwDCJ0kc+fh35hNt8srZQM4619'+
+      'FTgB66Xmp4EtVyhpQV+t02g6NzK72oZI0vnAvqhpkxLeLiMCyrI416wHm5Tkukhx'+
+      'QmcL2a6hNOyu0ixX/x2kSFXApEnVrJ+/IxGyfyw8kf4N2IZpW5nEP847lpfj0SZZ'+
+      'Fwrd1mnfnDbYohX2zRptLy2ZUn06Qo9pkG5ntvFEPo9bfZeULtjYzIl6K8gJ2uGZ'+
+      'HQIDAQAB'
+      ],
+    'invalid': [
+      'abc!',
+      'AB C',
+      'Vml2YW11cyBmZXJtZtesting123',
+      ''
+      ],
+  });
+}
+
+void testIsInt() {
+  test_this({
+    'validator': v.isInt,
+    'args': [],
+    'valid': [
+      '-1',
+      '0',
+      '10',
+      '23423',
+      '19934',
+      '-23412'
+      ],
+    'invalid': [
+      '-01',
+      '000',
+      '12.13',
+      'AB',
+      ''
+      ],
+  });
+}
+
+void testIsFloat() {
+  test_this({
+    'validator': v.isFloat,
+    'args': [],
+    'valid': [
+      '-1.324',
+      '0.32',
+      '-0.324',
+      '-2423.234234',
+      '-0.22250738585072011e-307',
+      '0.22250738585072011e-307'
+      ],
+    'invalid': [
+      'abc!',
+      'AB C',
+      ' '
+      ],
+  });
+}
+
+void testIsHexadecimal() {
+  test_this({
+    'validator': v.isHexadecimal,
+    'args': [],
+    'valid': [
+      'deadBEEF',
+      'ff0044'
+      ],
+    'invalid': [
+      'abcdefg',
+      ' ',
+      '..'
+      ],
+  });
+}
+
+void testIsHexColor() {
+  test_this({
+    'validator': v.isHexColor,
+    'args': [],
+    'valid': [
+      '#ff0034',
+      '#CCCCCC',
+      'fff',
+      '#f00'
+      ],
+    'invalid': [
+      '#ff',
+      'fff0',
+      '#ff12FG'
+      ],
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -216,6 +318,11 @@ void main() {
   testIsAlpha();
   testIsAlphanumeric();
   testIsNumeric();
+  testIsBase64();
+  testIsInt();
+  testIsFloat();
+  testIsHexadecimal();
+  testIsHexColor();
 
   print('All tests complete');
 }
