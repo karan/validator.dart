@@ -25,7 +25,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isHexadecimal(str) | check if the string is a hexadecimal number. | ✓ |
 | isHexColor(str) | check if the string is a hexadecimal color. | ✓ |
 | isLowercase(str) | check if the string is lowercase. | ✓ |
-| isUppercase(str) | check if the string is uppercase. | x |
+| isUppercase(str) | check if the string is uppercase. | ✓ |
 | isInt(str) | check if the string is an integer. | ✓ |
 | isFloat(str) | check if the string is a float. | ✓ |
 | isDivisibleBy(str, number) | check if the string is a number that's divisible by another. | x |
