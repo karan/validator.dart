@@ -170,6 +170,43 @@ void testIsAlpha() {
   });
 }
 
+void testIsAlphanumeric() {
+  test_this({
+    'validator': v.isAlphanumeric,
+    'args': [],
+    'valid': [
+      'abc1',
+      '0A1BC',
+      'Fo0bAr'
+      ],
+    'invalid': [
+      'abc!',
+      'AB C',
+      ''
+      ],
+  });
+}
+
+void testIsNumeric() {
+  test_this({
+    'validator': v.isNumeric,
+    'args': [],
+    'valid': [
+      '-1',
+      '0',
+      '00',
+      '01',
+      '19934',
+      '-23412'
+      ],
+    'invalid': [
+      'abc!',
+      'AB C',
+      ''
+      ],
+  });
+}
+
 void main() {
   testEquals();
   testContains();
@@ -177,6 +214,8 @@ void main() {
   testIsURL();
   testIsIP();
   testIsAlpha();
+  testIsAlphanumeric();
+  testIsNumeric();
 
   print('All tests complete');
 }
