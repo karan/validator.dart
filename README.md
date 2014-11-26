@@ -36,7 +36,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isNull(str) | check if the string is null. | ✓ |
 | isLength(str, min [, max]) | check if the string's length falls in a range. Note: this function takes into account surrogate pairs. | ✓ |
 | isByteLength(str, min [, max]) | check if the string's length (in bytes) falls in a range. | ✓ |
-| isUUID(str [, version]) | check if the string is a UUID (version 3, 4 or 5). | x |
+| isUUID(str [, version]) | check if the string is a UUID (version 3, 4 or 5). | ✓ |
 | isDate(str) | check if the string is a date. | x |
 | isAfter(str [, date]) | check if the string is a date that's after the specified date (defaults to now). | x |
 | isBefore(str [, date]) | check if the string is a date that's before the specified date. | x |
