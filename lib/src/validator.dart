@@ -319,3 +319,44 @@ bool isDate(String str) {
     return false;
   }
 }
+
+
+// check if the string is a date that's after the specified date
+bool isAfter(String str, [date]) {
+  if (date == null) {
+    date = new DateTime.now();
+  } else if (isDate(date)) {
+    date = DateTime.parse(date);
+  } else {
+    return false;
+  }
+
+  DateTime str_date;
+  try {
+    str_date = DateTime.parse(date);
+  } catch(e) {
+    return false;
+  }
+
+  return str_date.isAfter(date);
+}
+
+// check if the string is a date that's before the specified date
+bool isBefore(String str, [date]) {
+  if (date == null) {
+    date = new DateTime.now();
+  } else if (isDate(date)) {
+    date = DateTime.parse(date);
+  } else {
+    return false;
+  }
+
+  DateTime str_date;
+  try {
+    str_date = DateTime.parse(date);
+  } catch(e) {
+    return false;
+  }
+
+  return str_date.isBefore(date);
+}
