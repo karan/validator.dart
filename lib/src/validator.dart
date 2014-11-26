@@ -306,5 +306,5 @@ bool isUUID(String str, [version]) {
   }
 
   RegExp pat = uuid[version];
-  return (pat != null && pat.hasMatch(str));
+  return (pat != null && pat.hasMatch(str.toUpperCase()));
 }
