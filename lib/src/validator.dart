@@ -282,3 +282,9 @@ bool isLength(String str, int min, [int max]) {
   int len = str.length - surrogatePairs.length;
   return len >= min && (max == null || len <= max);
 }
+
+
+// check if the string's length (in bytes) falls in a range.
+bool isByteLength(String str, int min, [int max]) {
+  return str.length >= min && (max == null || str.length <= max);
+}

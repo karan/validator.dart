@@ -426,6 +426,36 @@ void testIsLength() {
 }
 
 
+void testIsByteLength() {
+  test({
+    'validator': v.isByteLength,
+    'args': [2],
+    'valid': [
+      'abc',
+      'de'
+      ],
+    'invalid': [
+      '',
+      ' '
+    ]
+  });
+
+  test({
+    'validator': v.isByteLength,
+    'args': [2, 3],
+    'valid': [
+      'abc',
+      'de',
+      '干𩸽'
+      ],
+    'invalid': [
+      '',
+      'abcdef'
+    ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -445,6 +475,7 @@ void main() {
   testIsDivisibleBy();
   testIsNull();
   testIsLength();
+  testIsByteLength();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
