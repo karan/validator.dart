@@ -15,6 +15,13 @@ RegExp hexcolor = new RegExp(r'^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$');
 
 RegExp base64 = new RegExp(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{4})$');
 
+Map uuid = {
+  '3': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$'),
+  '4': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$'),
+  '5': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-5[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$'),
+  'all': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$')
+};
+
 
 // check if the string matches the comparison
 bool equals(String str, comparison) {
@@ -287,4 +294,17 @@ bool isLength(String str, int min, [int max]) {
 // check if the string's length (in bytes) falls in a range.
 bool isByteLength(String str, int min, [int max]) {
   return str.length >= min && (max == null || str.length <= max);
+}
+
+
+// check if the string is a UUID (version 3, 4 or 5).
+bool isUUID(String str, [version]) {
+  if (version == null) {
+    version = 'all';
+  } else {
+    version = version.toString();
+  }
+
+  RegExp pat = uuid[version];
+  return (pat != null && pat.hasMatch(str));
 }
