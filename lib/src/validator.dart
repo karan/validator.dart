@@ -333,7 +333,7 @@ bool isAfter(String str, [date]) {
 
   DateTime str_date;
   try {
-    str_date = DateTime.parse(date);
+    str_date = DateTime.parse(str);
   } catch(e) {
     return false;
   }
@@ -353,7 +353,7 @@ bool isBefore(String str, [date]) {
 
   DateTime str_date;
   try {
-    str_date = DateTime.parse(date);
+    str_date = DateTime.parse(str);
   } catch(e) {
     return false;
   }

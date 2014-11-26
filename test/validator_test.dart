@@ -555,6 +555,26 @@ void testIsDate() {
 }
 
 
+void testIsAfter() {
+  test({
+    'validator': v.isAfter,
+    'args': ['2005-12-12'],
+    'valid': [
+      '2012-12-12',
+      '2012-02-27 13:27:00',
+      '2022-02-27T14:00:00-0500'
+      ],
+    'invalid': [
+      '2002-12-12',
+      '2002-02-27 13:27:00',
+      '2002-02-27T14:00:00-0500',
+      ' ',
+      ''
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -577,6 +597,7 @@ void main() {
   testIsByteLength();
   testIsUUID();
   testIsDate();
+  testIsAfter();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
