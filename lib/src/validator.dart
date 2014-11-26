@@ -268,3 +268,9 @@ bool isDivisibleBy(String str, n) {
     return false;
   }
 }
+
+
+// check if the string is null
+bool isNull(String str) {
+  return str == null || str.length == 0;
+}

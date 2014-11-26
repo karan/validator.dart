@@ -376,6 +376,22 @@ void testIsDivisibleBy() {
 }
 
 
+void testIsNull() {
+  test({
+    'validator': v.isNull,
+    'args': [],
+    'valid': [
+      null,
+      '',
+      ],
+    'invalid': [
+      ' ',
+      'foo'
+    ],
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -393,6 +409,7 @@ void main() {
   testIsLowercase();
   testIsUppercase();
   testIsDivisibleBy();
+  testIsNull();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
