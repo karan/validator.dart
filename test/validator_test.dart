@@ -533,6 +533,28 @@ void testIsUUID() {
 }
 
 
+void testIsDate() {
+  test({
+    'validator': v.isDate,
+    'args': [],
+    'valid': [
+      '2012-02-27 13:27:00',
+      '2012-02-27',
+      '2011-08-04 12:00',
+      '2012-02-27 13:27:00.123456z',
+      '20120227',
+      '2002-02-27T14:00:00-0500',
+      '2002-02-27T19:00:00Z'
+      ],
+    'invalid': [
+      '',
+      'aaaafff',
+      'ABC'
+    ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -554,6 +576,7 @@ void main() {
   testIsLength();
   testIsByteLength();
   testIsUUID();
+  testIsDate();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');

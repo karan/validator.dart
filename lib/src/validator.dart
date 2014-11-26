@@ -308,3 +308,14 @@ bool isUUID(String str, [version]) {
   RegExp pat = uuid[version];
   return (pat != null && pat.hasMatch(str.toUpperCase()));
 }
+
+
+// check if the string is a date
+bool isDate(String str) {
+  try {
+    DateTime.parse(str);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
