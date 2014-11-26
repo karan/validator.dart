@@ -456,6 +456,45 @@ void testIsByteLength() {
 }
 
 
+void testIsUUID() {
+  test({
+    'validator': v.isUUID,
+    'args': [],
+    'valid': [
+      'A987FBC9-4BED-3078-CF07-9141BA07C9F3',
+      'A987FBC9-4BED-4078-8F07-9141BA07C9F3',
+      'A987FBC9-4BED-5078-AF07-9141BA07C9F3'
+      ],
+    'invalid': [
+      '',
+      'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+      'A987FBC9-4BED-3078-CF07-9141BA07C9F3xxx',
+      'A987FBC94BED3078CF079141BA07C9F3',
+      '934859',
+      '987FBC9-4BED-3078-CF07A-9141BA07C9F3',
+      'AAAAAAAA-1111-1111-AAAG-111111111111'
+    ]
+  });
+
+  test({
+    'validator': v.isUUID,
+    'args': [3],
+    'valid': [
+      'A987FBC9-4BED-3078-CF07-9141BA07C9F3'
+      ],
+    'invalid': [
+      '',
+      'xxxA987FBC9-4BED-3078-CF07-9141BA07C9F3',
+      'A987FBC9-4BED-3078-CF07-9141BA07C9F3xxx',
+      'A987FBC94BED3078CF079141BA07C9F3',
+      '934859',
+      '987FBC9-4BED-3078-CF07A-9141BA07C9F3',
+      'AAAAAAAA-1111-1111-AAAG-111111111111'
+    ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -476,6 +515,7 @@ void main() {
   testIsNull();
   testIsLength();
   testIsByteLength();
+  testIsUUID();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
