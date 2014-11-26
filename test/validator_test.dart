@@ -387,7 +387,41 @@ void testIsNull() {
     'invalid': [
       ' ',
       'foo'
-    ],
+    ]
+  });
+}
+
+
+void testIsLength() {
+  test({
+    'validator': v.isLength,
+    'args': [2],
+    'valid': [
+      'ab',
+      'de',
+      'abcd',
+      '干𩸽'
+      ],
+    'invalid': [
+      '',
+      'a',
+      '𠀋'
+    ]
+  });
+
+  test({
+    'validator': v.isLength,
+    'args': [2, 3],
+    'valid': [
+      'abc',
+      'de',
+      '干𩸽'
+      ],
+    'invalid': [
+      '',
+      '𠀋',
+      '千竈通り'
+    ]
   });
 }
 
@@ -410,6 +444,7 @@ void main() {
   testIsUppercase();
   testIsDivisibleBy();
   testIsNull();
+  testIsLength();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');

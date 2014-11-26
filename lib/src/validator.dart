@@ -274,3 +274,11 @@ bool isDivisibleBy(String str, n) {
 bool isNull(String str) {
   return str == null || str.length == 0;
 }
+
+
+// check if the string's length falls in a range
+bool isLength(String str, int min, [int max]) {
+  List surrogatePairs = new RegExp(r'[\uD800-\uDBFF][\uDC00-\uDFFF]').allMatches(str).toList();
+  int len = str.length - surrogatePairs.length;
+  return len >= min && (max == null || len <= max);
+}
