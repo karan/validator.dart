@@ -430,12 +430,12 @@ bool isISBN(String str, [version]) {
       return false;
     }
     for (int i = 0; i < 9; i++) {
-      checksum += (i + 1) * sanitized.codeUnitAt(i);
+      checksum += (i + 1) * int.parse(sanitized[i]);
     }
     if (sanitized[9] == 'X') {
       checksum += 10 * 10;
     } else {
-      checksum += 10 * sanitized.codeUnitAt(9);
+      checksum += 10 * int.parse(sanitized[9]);
     }
     return (checksum % 11 == 0);
   } else if (version == '13') {
@@ -444,9 +444,9 @@ bool isISBN(String str, [version]) {
     }
     var factor = [1, 3];
     for (int i = 0; i < 12; i++) {
-      checksum += factor[i % 2] * sanitized.codeUnitAt(i);
+      checksum += factor[i % 2] * int.parse(sanitized[i]);
     }
-    return (sanitized.codeUnitAt(12) - (10 - (checksum % 10) % 10) == 0);
+    return (int.parse(sanitized[12]) - (10 - (checksum % 10) % 10) == 0);
   }
 
   return false;
