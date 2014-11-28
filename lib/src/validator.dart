@@ -30,6 +30,7 @@ Map uuid = {
 RegExp multibyte = new RegExp(r'[^\x00-\x7F]');
 RegExp ascii = new RegExp(r'^[\x00-\x7F]+$');
 RegExp fullWidth = new RegExp(r'[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]');
+RegExp halfWidth = new RegExp(r'[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]');
 
 
 // check if the string matches the comparison
@@ -483,4 +484,10 @@ bool isAscii(String str) {
 // check if the string contains any full-width chars
 bool isFullWidth(String str) {
   return fullWidth.hasMatch(str);
+}
+
+
+// check if the string contains any half-width chars
+bool isHalfWidth(String str) {
+  return halfWidth.hasMatch(str);
 }
