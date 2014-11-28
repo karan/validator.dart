@@ -47,7 +47,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isMultibyte(str) | check if the string contains one or more multibyte chars. | ✓ |
 | isAscii(str) | check if the string contains ASCII chars only. | ✓ |
 | isFullWidth(str) | check if the string contains any full-width chars. | ✓ |
-| isHalfWidth(str) | check if the string contains any half-width chars. | x |
+| isHalfWidth(str) | check if the string contains any half-width chars. | ✓ |
 | isVariableWidth(str) | check if the string contains a mixture of full and half-width chars. | x |
 | isSurrogatePair(str) | check if the string contains any surrogate pairs chars. | x |
 | isMongoId(str) | check if the string is a valid hex-encoded representation of a MongoDB ObjectId. | x |
