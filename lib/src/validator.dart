@@ -367,5 +367,10 @@ bool isIn(String str, values) {
   if (values == null || values.length == 0) {
     return false;
   }
+
+  if (values is List) {
+    values = values.map((e) => e.toString()).toList();
+  }
+
   return values.indexOf(str) >= 0;
 }

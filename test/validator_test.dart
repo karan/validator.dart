@@ -629,6 +629,23 @@ void testIsBefore() {
 }
 
 
+void testIsIn() {
+  test({
+    'validator': v.isIn,
+    'args': ['foobar'],
+    'valid': ['foo', 'bar', 'oba', 'foobar', ''],
+    'invalid': ['1', ' ']
+  });
+
+  test({
+    'validator': v.isIn,
+    'args': [[1, 2, 3]],
+    'valid': ['1', '2', '3'],
+    'invalid': ['4', ' ']
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -653,6 +670,7 @@ void main() {
   testIsDate();
   testIsAfter();
   testIsBefore();
+  testIsIn();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
