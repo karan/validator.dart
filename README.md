@@ -45,7 +45,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isISBN(str [, version]) | check if the string is an ISBN (version 10 or 13). | ✓ |
 | isJSON(str) | check if the string is valid JSON (note: uses JSON.parse). | ✓ |
 | isMultibyte(str) | check if the string contains one or more multibyte chars. | ✓ |
-| isAscii(str) | check if the string contains ASCII chars only. | x |
+| isAscii(str) | check if the string contains ASCII chars only. | ✓ |
 | isFullWidth(str) | check if the string contains any full-width chars. | x |
 | isHalfWidth(str) | check if the string contains any half-width chars. | x |
 | isVariableWidth(str) | check if the string contains a mixture of full and half-width chars. | x |
