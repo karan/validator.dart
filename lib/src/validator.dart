@@ -27,6 +27,8 @@ Map uuid = {
   'all': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}$')
 };
 
+RegExp multibyte = new RegExp(r'[^\x00-\x7F]');
+
 
 // check if the string matches the comparison
 bool equals(String str, comparison) {
@@ -461,4 +463,10 @@ bool isJSON(str) {
     return false;
   }
   return true;
+}
+
+
+// check if the string contains one or more multibyte chars
+bool isMultibyte(String str) {
+  return multibyte.hasMatch(str);
 }
