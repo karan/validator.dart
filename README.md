@@ -41,7 +41,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isAfter(str [, date]) | check if the string is a date that's after the specified date (defaults to now). | ✓ |
 | isBefore(str [, date]) | check if the string is a date that's before the specified date. | ✓ |
 | isIn(str, values) | check if the string is in a array of allowed values. | ✓ |
-| isCreditCard(str) | check if the string is a credit card. | x |
+| isCreditCard(str) | check if the string is a credit card. | ✓ |
 | isISBN(str [, version]) | check if the string is an ISBN (version 10 or 13). | x |
 | isJSON(str) | check if the string is valid JSON (note: uses JSON.parse). | x |
 | isMultibyte(str) | check if the string contains one or more multibyte chars. | x |
