@@ -44,7 +44,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isCreditCard(str) | check if the string is a credit card. | ✓ |
 | isISBN(str [, version]) | check if the string is an ISBN (version 10 or 13). | ✓ |
 | isJSON(str) | check if the string is valid JSON (note: uses JSON.parse). | ✓ |
-| isMultibyte(str) | check if the string contains one or more multibyte chars. | x |
+| isMultibyte(str) | check if the string contains one or more multibyte chars. | ✓ |
 | isAscii(str) | check if the string contains ASCII chars only. | x |
 | isFullWidth(str) | check if the string contains any full-width chars. | x |
 | isHalfWidth(str) | check if the string contains any half-width chars. | x |
