@@ -17,6 +17,8 @@ RegExp base64 = new RegExp(r'^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za
 
 RegExp creditCard = new RegExp(r'^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$');
 
+RegExp isbn10Maybe = new RegExp(r'^(?:[0-9]{9}X|[0-9]{10})$');
+RegExp isbn13Maybe = new RegExp(r'^(?:[0-9]{13})$');
 
 Map uuid = {
   '3': new RegExp(r'^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$'),
@@ -409,4 +411,43 @@ bool isCreditCard(String str) {
   }
 
   return (sum % 10 == 0);
+}
+
+
+// check if the string is an ISBN (version 10 or 13)
+bool isISBN(String str, [version]) {
+  if (version == null) {
+    return isISBN(str, '10') || isISBN(str, '13');
+  }
+
+  version = version.toString();
+
+  String sanitized = str.replaceAll(new RegExp(r'[\s-]+'), '');
+  int checksum = 0;
+
+  if (version == '10') {
+    if (!isbn10Maybe.hasMatch(sanitized)) {
+      return false;
+    }
+    for (int i = 0; i < 9; i++) {
+      checksum += (i + 1) * sanitized.codeUnitAt(i);
+    }
+    if (sanitized[9] == 'X') {
+      checksum += 10 * 10;
+    } else {
+      checksum += 10 * sanitized.codeUnitAt(9);
+    }
+    return (checksum % 11 == 0);
+  } else if (version == '13') {
+    if (!isbn13Maybe.hasMatch(sanitized)) {
+      return false;
+    }
+    var factor = [1, 3];
+    for (int i = 0; i < 12; i++) {
+      checksum += factor[i % 2] * sanitized.codeUnitAt(i);
+    }
+    return (sanitized.codeUnitAt(12) - (10 - (checksum % 10) % 10) == 0);
+  }
+
+  return false;
 }
