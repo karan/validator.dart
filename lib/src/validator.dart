@@ -360,3 +360,12 @@ bool isBefore(String str, [date]) {
 
   return str_date.isBefore(date);
 }
+
+
+// check if the string is in a array of allowed values
+bool isIn(String str, values) {
+  if (values == null || values.length == 0) {
+    return false;
+  }
+  return values.indexOf(str) >= 0;
+}
