@@ -724,6 +724,24 @@ void testIsISBN() {
 }
 
 
+void testIsJSON() {
+  test({
+    'validator': v.isJSON,
+    'args': [],
+    'valid': [
+      '{"key": "v"}',
+      '{"1": [1, 2, 3]}',
+      '[1, 2, 3]'
+      ],
+    'invalid': [
+      'foo',
+      '{ key: "value" }',
+      '{ \'key\': \'value\' }'
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -751,6 +769,7 @@ void main() {
   testIsIn();
   testIsCreditCard();
   testIsISBN();
+  testIsJSON();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
