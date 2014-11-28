@@ -446,7 +446,7 @@ bool isISBN(String str, [version]) {
     for (int i = 0; i < 12; i++) {
       checksum += factor[i % 2] * int.parse(sanitized[i]);
     }
-    return (int.parse(sanitized[12]) - (10 - (checksum % 10) % 10) == 0);
+    return (int.parse(sanitized[12]) - ((10 - (checksum % 10)) % 10) == 0);
   }
 
   return false;
