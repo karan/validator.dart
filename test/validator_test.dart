@@ -646,6 +646,27 @@ void testIsIn() {
 }
 
 
+void testIsCreditCard() {
+  test({
+    'validator': v.isCreditCard,
+    'args': [],
+    'valid': [
+      '375556917985515',
+      '36050234196908',
+      '4716461583322103',
+      '4716-2210-5188-5662',
+      '4929 7226 5379 7141',
+      '5398228707871527'
+      ],
+    'invalid': [
+      '5398228707871528',
+      '',
+      'Lol0'
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -671,6 +692,7 @@ void main() {
   testIsAfter();
   testIsBefore();
   testIsIn();
+  testIsCreditCard();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');

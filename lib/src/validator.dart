@@ -381,15 +381,15 @@ bool isIn(String str, values) {
 
 // check if the string is a credit card
 bool isCreditCard(String str) {
-  var sanitized = str.replaceAll(r'[^0-9]+', '');
-  if (!creditCard.hasMatch(str)) {
+  String sanitized = str.replaceAll(new RegExp(r'[^0-9]+'), '');
+  if (!creditCard.hasMatch(sanitized)) {
     return false;
   }
 
   // Luhn algorithm
   int sum = 0;
   String digit;
-  bool shouldDouble;
+  bool shouldDouble = false;
 
   for (int i = sanitized.length - 1; i >= 0; i--) {
     digit = sanitized.substring(i, (i + 1));
@@ -407,5 +407,6 @@ bool isCreditCard(String str) {
     }
     shouldDouble = !shouldDouble;
   }
-  return !!((sum % 10) == 0 ? sanitized : false);
+
+  return (sum % 10 == 0);
 }
