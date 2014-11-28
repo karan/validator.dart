@@ -796,6 +796,24 @@ void testIsFullWidth() {
 }
 
 
+void testIsHalfWidth() {
+  test({
+    'validator': v.isHalfWidth,
+    'args': [],
+    'valid': [
+      'l-btn_02--active',
+      'abc123い',
+      'ｶﾀｶﾅﾞﾬ￩'
+      ],
+    'invalid': [
+      '００１１',
+      'あいうえお',
+      ''
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -827,6 +845,7 @@ void main() {
   testIsMultibyte();
   testIsAscii();
   testIsFullWidth();
+  testIsHalfWidth();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
