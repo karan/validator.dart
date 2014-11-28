@@ -451,3 +451,14 @@ bool isISBN(String str, [version]) {
 
   return false;
 }
+
+
+// check if the string is valid JSON
+bool isJSON(String str) {
+  try {
+    JSON.decode(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
