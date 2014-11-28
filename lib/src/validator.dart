@@ -28,6 +28,7 @@ Map uuid = {
 };
 
 RegExp multibyte = new RegExp(r'[^\x00-\x7F]');
+RegExp ascii = new RegExp(r'^[\x00-\x7F]+$');
 
 
 // check if the string matches the comparison
@@ -469,4 +470,10 @@ bool isJSON(str) {
 // check if the string contains one or more multibyte chars
 bool isMultibyte(String str) {
   return multibyte.hasMatch(str);
+}
+
+
+// check if the string contains ASCII chars only
+bool isAscii(String str) {
+  return ascii.hasMatch(str);
 }
