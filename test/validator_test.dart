@@ -742,6 +742,24 @@ void testIsJSON() {
 }
 
 
+void testIsMultibyte() {
+  test({
+    'validator': v.isMultibyte,
+    'args': [],
+    'valid': [
+      'ひらがな・カタカナ、．漢字',
+      'あいうえお foobar',
+      'test＠example.com',
+      '1234abcDEｘｙｚ'
+      ],
+    'invalid': [
+      'abc',
+      '<>@" *.'
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -770,6 +788,7 @@ void main() {
   testIsCreditCard();
   testIsISBN();
   testIsJSON();
+  testIsMultibyte();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
