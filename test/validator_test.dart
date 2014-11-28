@@ -760,6 +760,24 @@ void testIsMultibyte() {
 }
 
 
+void testIsAscii() {
+  test({
+    'validator': v.isAscii,
+    'args': [],
+    'valid': [
+      'abc',
+      '<>@" *.'
+      ],
+    'invalid': [
+      'ひらがな・カタカナ、．漢字',
+      'あいうえお foobar',
+      'test＠example.com',
+      '1234abcDEｘｙｚ'
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -789,6 +807,7 @@ void main() {
   testIsISBN();
   testIsJSON();
   testIsMultibyte();
+  testIsAscii();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
