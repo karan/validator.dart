@@ -46,7 +46,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 | isJSON(str) | check if the string is valid JSON (note: uses JSON.parse). | ✓ |
 | isMultibyte(str) | check if the string contains one or more multibyte chars. | ✓ |
 | isAscii(str) | check if the string contains ASCII chars only. | ✓ |
-| isFullWidth(str) | check if the string contains any full-width chars. | x |
+| isFullWidth(str) | check if the string contains any full-width chars. | ✓ |
 | isHalfWidth(str) | check if the string contains any half-width chars. | x |
 | isVariableWidth(str) | check if the string contains a mixture of full and half-width chars. | x |
 | isSurrogatePair(str) | check if the string contains any surrogate pairs chars. | x |
