@@ -778,6 +778,24 @@ void testIsAscii() {
 }
 
 
+void testIsFullWidth() {
+  test({
+    'validator': v.isFullWidth,
+    'args': [],
+    'valid': [
+      'ひらがな・カタカナ、．漢字',
+      '３ー０　ａ＠ｃｏｍ',
+      'Ｆｶﾀｶﾅﾞﾬ'
+      ],
+    'invalid': [
+      'abc',
+      'abc123',
+      ''
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -808,6 +826,7 @@ void main() {
   testIsJSON();
   testIsMultibyte();
   testIsAscii();
+  testIsFullWidth();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
