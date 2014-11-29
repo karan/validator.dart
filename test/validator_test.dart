@@ -853,6 +853,22 @@ void testIsSurrogatePairs() {
 }
 
 
+void testIsMongoId() {
+  test({
+    'validator': v.isMongoId,
+    'args': [],
+    'valid': [
+      '507f1f77bcf86cd799439011'
+      ],
+    'invalid': [
+      '507f1f77bcf86cd7994390',
+      '507f1f77bcf86cd7994390z',
+      ''
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -887,6 +903,7 @@ void main() {
   testIsHalfWidth();
   testIsVariableWidth();
   testIsSurrogatePairs();
+  testIsMongoId();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
