@@ -74,7 +74,7 @@ bool isURL(String str, [options]) {
     'allow_underscores': false
   };
 
-  options = merge(options, default_url_options);
+  options = _merge(options, default_url_options);
 
   var protocol, user, pass, auth, host, hostname, port, port_str, path, query,
       hash, split;
@@ -82,7 +82,7 @@ bool isURL(String str, [options]) {
   // check protocol
   split = str.split('://');
   if (split.length > 1) {
-    protocol = shift(split);
+    protocol = _shift(split);
     if (options['protocols'].indexOf(protocol) == -1) {
       return false;
     }
@@ -93,7 +93,7 @@ bool isURL(String str, [options]) {
 
   // check hash
   split = str.split('#');
-  str = shift(split);
+  str = _shift(split);
   hash = split.join('#');
   if (hash != null && hash != "" && new RegExp(r'\s').hasMatch(hash)) {
     return false;
@@ -101,7 +101,7 @@ bool isURL(String str, [options]) {
 
   // check query params
   split = str.split('?');
-  str = shift(split);
+  str = _shift(split);
   query = split.join('?');
   if (query != null && query != "" && new RegExp(r'\s').hasMatch(query)) {
     return false;
@@ -109,7 +109,7 @@ bool isURL(String str, [options]) {
 
   // check path
   split = str.split('/');
-  str = shift(split);
+  str = _shift(split);
   path = split.join('/');
   if (path != null && path != "" && new RegExp(r'\s').hasMatch(path)) {
     return false;
@@ -118,10 +118,10 @@ bool isURL(String str, [options]) {
   // check auth type urls
   split = str.split('@');
   if (split.length > 1) {
-    auth = shift(split);
+    auth = _shift(split);
     if (auth.indexOf(':') >= 0) {
       auth = auth.split(':');
-      user = shift(auth);
+      user = _shift(auth);
       if (!new RegExp(r'^\S+$').hasMatch(user)) {
         return false;
       }
@@ -135,7 +135,7 @@ bool isURL(String str, [options]) {
   // check hostname
   hostname = split.join('@');
   split = hostname.split(':');
-  host = shift(split);
+  host = _shift(split);
   if (split.length > 0) {
     port_str = split.join(':');
     try {
@@ -192,7 +192,7 @@ bool isFQDN(str, [options]) {
     'allow_underscores': false
   };
 
-  options = merge(options, default_fqdn_options);
+  options = _merge(options, default_fqdn_options);
   List parts = str.split('.');
   if (options['require_tld']) {
     var tld = parts.removeLast();

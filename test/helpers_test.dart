@@ -7,11 +7,11 @@ void testShift() {
   group('Test shift', () {
     test('full list', () {
       var l = [1, 2, 3, 4];
-      var f = v.shift(l);
+      var f = v._shift(l);
       expect(f, equals(1));
       expect(l, equals([2, 3, 4]));
     });
-    test('empty list', () => expect(v.shift([]), null));
+    test('empty list', () => expect(v._shift([]), null));
   });
 }
 
@@ -24,13 +24,13 @@ void testMerge() {
   };
 
   group('Test merge', () {
-    test('empty maps', () => expect(v.merge(new Map(), new Map()), {}));
-    test('obj empty', () => expect(v.merge(new Map(), default_url_options),
+    test('empty maps', () => expect(v._merge(new Map(), new Map()), {}));
+    test('obj empty', () => expect(v._merge(new Map(), default_url_options),
                                    default_url_options));
-    test('equal maps', () => expect(v.merge(default_url_options,
+    test('equal maps', () => expect(v._merge(default_url_options,
                                           default_url_options),
                                     default_url_options));
-    test('missing values', () => expect(v.merge({'require_tld': true},
+    test('missing values', () => expect(v._merge({'require_tld': true},
                                               default_url_options),
                                         default_url_options));
   });

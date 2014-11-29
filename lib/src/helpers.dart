@@ -2,7 +2,7 @@ part of validator;
 
 // Helper functions for validator and sanitizer.
 
-shift(List l) {
+_shift(List l) {
   if (l.length >= 1) {
     var first = l.first;
     l.removeAt(0);
@@ -11,7 +11,7 @@ shift(List l) {
   return null;
 }
 
-Map merge(Map obj, defaults) {
+Map _merge(Map obj, defaults) {
   if (obj == null) {
     obj = new Map();
   }
