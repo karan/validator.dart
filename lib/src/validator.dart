@@ -5,6 +5,8 @@ RegExp email = new RegExp(r"^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\
 RegExp ipv4Maybe = new RegExp(r'^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$');
 RegExp ipv6 = new RegExp(r'^::|^::1|^([a-fA-F0-9]{1,4}::?){1,7}([a-fA-F0-9]{1,4})$');
 
+RegExp surrogatePairsRegExp = new RegExp(r'[\uD800-\uDBFF][\uDC00-\uDFFF]');
+
 RegExp alpha = new RegExp(r'^[a-zA-Z]+$');
 RegExp alphanumeric = new RegExp(r'^[a-zA-Z0-9]+$');
 RegExp numeric = new RegExp(r'^-?[0-9]+$');
@@ -295,7 +297,7 @@ bool isNull(String str) {
 
 // check if the string's length falls in a range
 bool isLength(String str, int min, [int max]) {
-  List surrogatePairs = new RegExp(r'[\uD800-\uDBFF][\uDC00-\uDFFF]').allMatches(str).toList();
+  List surrogatePairs = surrogatePairsRegExp.allMatches(str).toList();
   int len = str.length - surrogatePairs.length;
   return len >= min && (max == null || len <= max);
 }
@@ -496,4 +498,10 @@ bool isHalfWidth(String str) {
 // check if the string contains a mixture of full and half-width chars
 bool isVariableWidth(String str) {
   return isFullWidth(str) && isHalfWidth(str);
+}
+
+
+// check if the string contains any surrogate pairs chars
+bool isSurrogatePair(String str) {
+  return surrogatePairsRegExp.hasMatch(str);
 }
