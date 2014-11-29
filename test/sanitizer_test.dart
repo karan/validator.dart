@@ -91,6 +91,19 @@ void testToBoolean() {
       '   ': true
     }
   });
+
+  test({
+    'sanitizer': s.toBoolean,
+    'args': [true],
+    'expect': {
+      '0': false,
+      '': false,
+      '1': true,
+      'true': true,
+      'foobar': false,
+      '   ': false
+    }
+  });
 }
 
 
