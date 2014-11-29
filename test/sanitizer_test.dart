@@ -107,12 +107,22 @@ void testToBoolean() {
 }
 
 
+void testTrim() {
+  test({
+    'sanitizer': s.trim,
+    'args': [],
+    'expect': {'  \r\n\tfoo  \r\n\t   ': 'foo'}
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
   testToFloat();
   testToInt();
   testToBoolean();
+  testTrim();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
