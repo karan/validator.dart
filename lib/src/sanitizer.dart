@@ -28,3 +28,8 @@ double toFloat(String str) {
     return double.NAN;
   }
 }
+
+// convert the input to a float, or NaN if the input is not a float
+double toDouble(String str) {
+  return toFloat(str);
+}
