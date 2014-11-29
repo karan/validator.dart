@@ -54,11 +54,13 @@ bool matches(String str, pattern) {
 }
 
 
+// check if the string is an email
 bool isEmail(String str) {
   return email.hasMatch(str.toLowerCase());
 }
 
 
+// check if the string is a URL
 bool isURL(String str, [options]) {
   if (str == null || str.length == 0 || str.length > 2083 ||
       str.indexOf('mailto:') == 0) {
