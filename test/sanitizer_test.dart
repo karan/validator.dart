@@ -78,11 +78,28 @@ void testToInt() {
 }
 
 
+void testToBoolean() {
+  test({
+    'sanitizer': s.toBoolean,
+    'args': [],
+    'expect': {
+      '0': false,
+      '': false,
+      '1': true,
+      'true': true,
+      'foobar': true,
+      '   ': true
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
   testToFloat();
   testToInt();
+  testToBoolean();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
