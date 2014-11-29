@@ -13,6 +13,10 @@ void test(Map options) {
     var result = Function.apply(options['sanitizer'], args);
     var expected = options['expect'][input];
 
+    if ((expected is double || expected is int) && expected.isNaN == true && result.isNaN == true) {
+      return true;
+    }
+
     if (result != expected) {
       throw new Exception('sanitizer.$f($args) failed but should have passed');
     }
@@ -47,9 +51,24 @@ void testToDate() {
 }
 
 
+void testToFloat() {
+  test({
+    'sanitizer': s.toFloat,
+    'args': [],
+    'expect': {
+      '1': 1.0,
+      '2.': 2.0,
+      '-1.4': -1.4,
+      'foo': double.NAN
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
+  testToFloat();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
