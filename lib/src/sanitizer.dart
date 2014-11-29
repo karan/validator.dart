@@ -47,3 +47,12 @@ num toInt(String str, {int radix:10}) {
     }
   }
 }
+
+
+// convert the input to a boolean
+bool toBoolean(String str, {bool strict:false}) {
+  if (strict == true) {
+    return str == '1' || str == true;
+  }
+  return str != '0' && str != 'false' && str != '';
+}
