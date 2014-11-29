@@ -40,7 +40,8 @@ void testToDate() {
     'sanitizer': s.toDate,
     'args': [],
     'expect': {
-      '2012-02-27 13:27:00': DateTime.parse('2012-02-27 13:27:00')
+      '2012-02-27 13:27:00': DateTime.parse('2012-02-27 13:27:00'),
+      'abc': null
     }
   });
 }

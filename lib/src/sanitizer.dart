@@ -15,6 +15,6 @@ DateTime toDate(String str) {
   try {
     return DateTime.parse(str);
   } catch(e) {
-    return new DateTime.now();
+    return null;
   }
 }
