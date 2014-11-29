@@ -75,7 +75,7 @@ Now in your Dart code, you can use:
 | ------ | ----------- | ------ |
 | toString(input) | convert the input to a string. | ✔ |
 | toDate(input) | convert the input to a date, or `null` if the input is not a date. | ✔ |
-| toFloat(input) | convert the input to a float, or `NaN` if the input is not a float. | x |
+| toFloat(input) | convert the input to a float, or `NaN` if the input is not a float. | ✔ |
 | toInt(input [, radix]) | convert the input to an integer, or `NaN` if the input is not an integer. | x |
 | toBoolean(input [, strict]) | convert the input to a boolean. Everything except for `'0'`, `'false'` and `''` returns `true`. In strict mode only `'1'` and `'true'` return `true`. | x |
 | trim(input [, chars]) | trim characters (whitespace by default) from both sides of the input. | x |
