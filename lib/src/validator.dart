@@ -505,3 +505,9 @@ bool isVariableWidth(String str) {
 bool isSurrogatePair(String str) {
   return surrogatePairsRegExp.hasMatch(str);
 }
+
+
+// check if the string is a valid hex-encoded representation of a MongoDB ObjectId
+bool isMongoId(String str) {
+  return (isHexadecimal(str) && str.length == 24);
+}
