@@ -119,6 +119,30 @@ void testTrim() {
     'args': ['01'],
     'expect': {'010100201000': '2'}
   });
+
+  test({
+    'sanitizer': s.ltrim,
+    'args': [],
+    'expect': {'  \r\n\tfoo  \r\n\t   ': 'foo  \r\n\t   '}
+  });
+
+  test({
+    'sanitizer': s.ltrim,
+    'args': ['01'],
+    'expect': {'010100201000': '201000'}
+  });
+
+  test({
+    'sanitizer': s.rtrim,
+    'args': [],
+    'expect': {'  \r\n\tfoo  \r\n\t   ': '  \r\n\tfoo'}
+  });
+
+  test({
+    'sanitizer': s.rtrim,
+    'args': ['01'],
+    'expect': {'010100201000': '0101002'}
+  });
 }
 
 

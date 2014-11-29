@@ -67,13 +67,13 @@ String trim(String str, [String chars]) {
 
 // trim characters from the left-side of the input
 String ltrim(String str, [String chars]) {
-  var pattern = chars == null ? new RegExp('^[$chars]+') : new RegExp(r'^\s+');
+  var pattern = chars != null ? new RegExp('^[$chars]+') : new RegExp(r'^\s+');
   return str.replaceAll(pattern, '');
 }
 
 
 // trim characters from the right-side of the input
 String rtrim(String str, [String chars]) {
-  var pattern = chars == null ? new RegExp('[$chars]+\$') : new RegExp(r'\s+$');
+  var pattern = chars != null ? new RegExp('[$chars]+\$') : new RegExp(r'\s+$');
   return str.replaceAll(pattern, '');
 }
