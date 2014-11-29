@@ -491,3 +491,9 @@ bool isFullWidth(String str) {
 bool isHalfWidth(String str) {
   return halfWidth.hasMatch(str);
 }
+
+
+// check if the string contains a mixture of full and half-width chars
+bool isVariableWidth(String str) {
+  return isFullWidth(str) && isHalfWidth(str);
+}
