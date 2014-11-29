@@ -36,11 +36,14 @@ double toDouble(String str) {
 
 
 // convert the input to an integer, or NaN if the input is not an integer
-int toInt(String str, [radix]) {
+num toInt(String str, {int radix:10}) {
   try {
-    radix = radix == null ? 10 : radix;
     return int.parse(str, radix:radix);
   } catch (e) {
-    return double.NAN.toInt();
+    try {
+      return double.parse(str).toInt();
+    } catch (e) {
+      return double.NAN;
+    }
   }
 }

@@ -65,10 +65,24 @@ void testToFloat() {
 }
 
 
+void testToInt() {
+  test({
+    'sanitizer': s.toInt,
+    'args': [],
+    'expect': {
+      '1.4': 1,
+      '2.': 2,
+      'foo': double.NAN
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
   testToFloat();
+  testToInt();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
