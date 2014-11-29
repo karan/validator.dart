@@ -814,6 +814,27 @@ void testIsHalfWidth() {
 }
 
 
+void testIsVariableWidth() {
+  test({
+    'validator': v.isVariableWidth,
+    'args': [],
+    'valid': [
+      'ひらがなカタカナ漢字ABCDE',
+      '３ー０123',
+      'Ｆｶﾀｶﾅﾞﾬ',
+      'Good＝Parts'
+      ],
+    'invalid': [
+      'abc',
+      'abc123',
+      'ひらがな・カタカナ、．漢字',
+      '１２３４５６',
+      ''
+      ]
+  });
+}
+
+
 void main() {
   testEquals();
   testContains();
@@ -846,6 +867,7 @@ void main() {
   testIsAscii();
   testIsFullWidth();
   testIsHalfWidth();
+  testIsVariableWidth();
 
   print('-------------------------------------');
   print('All tests in validator.dart complete.');
