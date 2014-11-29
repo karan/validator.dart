@@ -56,3 +56,10 @@ bool toBoolean(String str, [bool strict]) {
   }
   return str != '0' && str != 'false' && str != '';
 }
+
+
+// trim characters (whitespace by default) from both sides of the input
+String trim(String str, [String chars]) {
+  RegExp pattern = (chars == true) ? new RegExp(r'^[$chars]+|[$chars]+$') : new RegExp(r'^\s+|\s+$');
+  return str.replaceAll(pattern, '');
+}
