@@ -73,7 +73,7 @@ Now in your Dart code, you can use:
 
 | Method | Description | Status |
 | ------ | ----------- | ------ |
-| toString(input) | convert the input to a string. | x |
+| toString(input) | convert the input to a string. | ✔ |
 | toDate(input) | convert the input to a date, or `null` if the input is not a date. | x |
 | toFloat(input) | convert the input to a float, or `NaN` if the input is not a float. | x |
 | toInt(input [, radix]) | convert the input to an integer, or `NaN` if the input is not an integer. | x |
