@@ -60,6 +60,6 @@ bool toBoolean(String str, [bool strict]) {
 
 // trim characters (whitespace by default) from both sides of the input
 String trim(String str, [String chars]) {
-  RegExp pattern = (chars == true) ? new RegExp(r'^[$chars]+|[$chars]+$') : new RegExp(r'^\s+|\s+$');
+  RegExp pattern = (chars != null) ? new RegExp('^[$chars]+|[$chars]+\$') : new RegExp(r'^\s+|\s+$');
   return str.replaceAll(pattern, '');
 }

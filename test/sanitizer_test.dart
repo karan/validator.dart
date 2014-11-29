@@ -113,6 +113,12 @@ void testTrim() {
     'args': [],
     'expect': {'  \r\n\tfoo  \r\n\t   ': 'foo'}
   });
+
+  test({
+    'sanitizer': s.trim,
+    'args': ['01'],
+    'expect': {'010100201000': '2'}
+  });
 }
 
 
