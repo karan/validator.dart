@@ -1,11 +1,9 @@
 validator.dart
 =============
 
-String validation and sanitization for Dart.
+[![Build Status](https://drone.io/github.com/karan/validator.dart/status.png)](https://drone.io/github.com/karan/validator.dart/latest)
 
-| Build | Tweet |
-| ----- | ----- |
-| [![Build Status](https://drone.io/github.com/karan/validator.dart/status.png)](https://drone.io/github.com/karan/validator.dart/latest) | [![](http://sopins.herokuapp.com/twitter/https://github.com/karan/validator.dart/pin.png)](https://twitter.com/intent/tweet?text=String+validation+and+sanitization+for+Dart.&amp;url=https://github.com/karan/validator.dart&amp;via=KaranGoel) |
+String validation and sanitization for Dart.
 
 Port of [chriso's library](https://github.com/chriso/validator.js).
 
