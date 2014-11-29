@@ -52,6 +52,23 @@ void testContains() {
 }
 
 
+void testMatches() {
+  test({
+    'validator': v.matches,
+    'args': ['abc'],
+    'valid': [
+      'abc',
+      'abcdef',
+      '123abc'
+      ],
+    'invalid': [
+      'acb',
+      'ABC'
+      ]
+  });
+}
+
+
 void testIsEmail() {
   test({
     'validator': v.isEmail,
@@ -872,6 +889,7 @@ void testIsMongoId() {
 void main() {
   testEquals();
   testContains();
+  testMatches();
   testIsEmail();
   testIsURL();
   testIsIP();
