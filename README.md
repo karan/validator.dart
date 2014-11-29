@@ -14,7 +14,7 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 Add this to your package's `pubspec.yaml` file:
 
     dependencies:
-      validator: ">=0.0.2 <0.1.0"
+      validator: ">=0.0.4 <0.1.0"
 
 #### 2. Install it
 
