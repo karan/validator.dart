@@ -47,12 +47,11 @@ bool contains(String str, seed) {
 }
 
 
-// check if string matches the pattern. Either matches('foo', /foo/i) or matches('foo', 'foo', 'i').
-//bool matches(String str, pattern, [modifiers]) {
-//  RegExp re = new RegExp(pattern);
-//  return re.hasMatch(str);
-////  print(reflect(pattern).type.reflectedType.toString());
-//}
+// check if string matches the pattern.
+bool matches(String str, pattern) {
+  RegExp re = new RegExp(pattern);
+  return re.hasMatch(str);
+}
 
 
 bool isEmail(String str) {
