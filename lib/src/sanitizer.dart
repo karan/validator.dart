@@ -1,6 +1,6 @@
 part of validator;
 
-Map default_normalize_email_options = { 'lowercase': true };
+Map _default_normalize_email_options = { 'lowercase': true };
 
 
 // convert the input to a string
@@ -112,7 +112,7 @@ String escape(String str) {
 
 // canonicalize an email address
 String normalizeEmail(String email, [Map options]) {
-  options = _merge(options, default_normalize_email_options);
+  options = _merge(options, _default_normalize_email_options);
   if (isEmail(email) == false) {
       return '';
   }
