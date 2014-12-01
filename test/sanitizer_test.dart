@@ -160,6 +160,20 @@ void testWhitelist() {
 }
 
 
+void testBlacklist() {
+  test({
+    'sanitizer': s.blacklist,
+    'args': ['abc'],
+    'expect': {
+      'abcdef': 'def',
+      'aaaaaaaaaabbbbbbbbbb': '',
+      'a1b2c3': '123',
+      '   ': '   '
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
@@ -168,6 +182,7 @@ void main() {
   testToBoolean();
   testTrim();
   testWhitelist();
+  testBlacklist();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
