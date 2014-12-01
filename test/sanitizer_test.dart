@@ -174,6 +174,32 @@ void testBlacklist() {
 }
 
 
+void testStripLow() {
+  test({
+    'sanitizer': s.stripLow,
+    'args': [true],
+    'expect': {
+      "foo\x0A\x0D": "foo\x0A\x0D",
+      "\x03foo\x0A\x0D": "foo\x0A\x0D"
+    }
+  });
+
+  test({
+    'sanitizer': s.stripLow,
+    'args': [],
+    'expect': {
+      "foo\x00": "foo",
+      "\x7Ffoo\x02": "foo",
+      "\x01\x09": "",
+      "foo\x0A\x0D": "foo",
+      "perch\u00e9": "perch\u00e9",
+      "\u20ac": "\u20ac",
+      "\u2206\x0A": "\u2206"
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
@@ -183,6 +209,7 @@ void main() {
   testTrim();
   testWhitelist();
   testBlacklist();
+  testStripLow();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
