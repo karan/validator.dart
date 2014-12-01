@@ -232,6 +232,22 @@ void testNormalizeEmail() {
       '': ''
     }
   });
+
+  test({
+    'sanitizer': s.normalizeEmail,
+    'args': [{'lowercase': false}],
+    'expect': {
+      'test@me.com': 'test@me.com',
+      'hans@m端ller.com': 'hans@m端ller.com',
+      'test@ME.COM': 'test@me.com',
+      'TEST@me.com': 'TEST@me.com',
+      'TEST@ME.COM': 'TEST@me.com',
+      'blAH@x.com': 'blAH@x.com',
+      'SOME.name@GMAIL.com': 'somename@gmail.com',
+      'SOME.name.middleName+extension@GoogleMail.com': 'somenamemiddlename@gmail.com',
+      'SOME.name.midd.leNa.me.+extension@gmail.com': 'somenamemiddlename@gmail.com'
+    }
+  });
 }
 
 
