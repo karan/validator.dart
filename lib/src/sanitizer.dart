@@ -77,3 +77,9 @@ String rtrim(String str, [String chars]) {
   var pattern = chars != null ? new RegExp('[$chars]+\$') : new RegExp(r'\s+$');
   return str.replaceAll(pattern, '');
 }
+
+
+// remove characters that do not appear in the whitelist
+String whitelist(String str, String chars) {
+  return str.replaceAll(new RegExp('[^' + chars + ']+'), '');
+}
