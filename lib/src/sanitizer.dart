@@ -96,3 +96,13 @@ String stripLow(String str, [bool keep_new_lines]) {
   String chars = keep_new_lines == true ? '\x00-\x09\x0B\x0C\x0E-\x1F\x7F' : '\x00-\x1F\x7F';
   return blacklist(str, chars);
 }
+
+
+// replace <, >, &, ' and " with HTML entities
+String escape(String str) {
+  return (str.replaceAll(new RegExp(r'&'), '&amp;')
+             .replaceAll(new RegExp(r'"'), '&quot;')
+             .replaceAll(new RegExp(r"'"), '&#x27;')
+             .replaceAll(new RegExp(r'<'), '&lt;')
+             .replaceAll(new RegExp(r'>'), '&gt;'));
+}
