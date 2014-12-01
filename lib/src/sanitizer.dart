@@ -1,5 +1,7 @@
 part of validator;
 
+Map default_normalize_email_options = { 'lowercase': true };
+
 
 // convert the input to a string
 String toString(input) {
@@ -105,4 +107,29 @@ String escape(String str) {
              .replaceAll(new RegExp(r"'"), '&#x27;')
              .replaceAll(new RegExp(r'<'), '&lt;')
              .replaceAll(new RegExp(r'>'), '&gt;'));
+}
+
+
+// canonicalize an email address
+String normalizeEmail(String email, Map options) {
+  options = _merge(options, default_normalize_email_options);
+  if (isEmail(email) == false) {
+      return '';
+  }
+
+  List parts = email.split('@');
+  parts[1] = parts[1].toLowerCase();
+
+  if (options['lowercase'] == true) {
+      parts[0] = parts[0].toLowerCase();
+  }
+
+  if (parts[1] == 'gmail.com' || parts[1] == 'googlemail.com') {
+    if (options['lowercase'] == false) {
+        parts[0] = parts[0].toLowerCase();
+    }
+    parts[0] = parts[0].replaceAll('\.', '').split('+')[0];
+    parts[1] = 'gmail.com';
+  }
+  return parts.join('@');
 }
