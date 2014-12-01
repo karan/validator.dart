@@ -200,6 +200,18 @@ void testStripLow() {
 }
 
 
+void testEscape() {
+  test({
+    'sanitizer': s.escape,
+    'args': [],
+    'expect': {
+      '<img alt="foo&bar">': '&lt;img alt=&quot;foo&amp;bar&quot;&gt;',
+      "<img alt='foo&bar'>": '&lt;img alt=&#x27;foo&amp;bar&#x27;&gt;'
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
@@ -210,6 +222,7 @@ void main() {
   testWhitelist();
   testBlacklist();
   testStripLow();
+  testEscape();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
