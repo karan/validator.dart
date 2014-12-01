@@ -83,3 +83,9 @@ String rtrim(String str, [String chars]) {
 String whitelist(String str, String chars) {
   return str.replaceAll(new RegExp('[^' + chars + ']+'), '');
 }
+
+
+// remove characters that appear in the blacklist
+String blacklist(String str, String chars) {
+  return str.replaceAll(new RegExp('[' + chars + ']+'), '');
+}
