@@ -51,8 +51,10 @@ num toInt(String str, {int radix:10}) {
 }
 
 
-/// convert the input to a boolean Everything except for '0', 'false' and ''
-/// returns true. In [strict] mode only '1' and 'true' return true.
+/// convert the input to a boolean.
+///
+/// Everything except for '0', 'false' and ''
+/// returns `true`. In `strict` mode only '1' and 'true' return `true`.
 bool toBoolean(String str, [bool strict]) {
   if (strict == true) {
     return str == '1' || str == 'true';
@@ -82,29 +84,35 @@ String rtrim(String str, [String chars]) {
 }
 
 
-/// remove characters that do not appear in the whitelist. The characters are
-/// used in a RegExp and so you will need to escape some chars
+/// remove characters that do not appear in the whitelist.
+///
+/// The characters are used in a RegExp and so you will need to escape
+/// some chars.
 String whitelist(String str, String chars) {
   return str.replaceAll(new RegExp('[^' + chars + ']+'), '');
 }
 
 
-/// remove characters that appear in the blacklist. The characters are
-/// used in a RegExp and so you will need to escape some chars
+/// remove characters that appear in the blacklist.
+///
+/// The characters are used in a RegExp and so you will need to escape
+/// some chars.
 String blacklist(String str, String chars) {
   return str.replaceAll(new RegExp('[' + chars + ']+'), '');
 }
 
 
-/// remove characters with a numerical value < 32 and 127. If [keep_new_lines]
-/// is true, newline characters are preserved (\n and \r, hex 0xA and 0xD).
+/// remove characters with a numerical value < 32 and 127.
+///
+/// If `keep_new_lines` is `true`, newline characters are preserved
+/// `(\n and \r, hex 0xA and 0xD)`.
 String stripLow(String str, [bool keep_new_lines]) {
   String chars = keep_new_lines == true ? '\x00-\x09\x0B\x0C\x0E-\x1F\x7F' : '\x00-\x1F\x7F';
   return blacklist(str, chars);
 }
 
 
-/// replace <, >, &, ' and " with HTML entities
+/// replace `<`, `>`, `&`, `'` and `"` with HTML entities
 String escape(String str) {
   return (str.replaceAll(new RegExp(r'&'), '&amp;')
              .replaceAll(new RegExp(r'"'), '&quot;')
@@ -114,15 +122,17 @@ String escape(String str) {
 }
 
 
-/// canonicalize an email address. options is an [options] which defaults to
+/// canonicalize an email address.
+///
+/// `options` is an `Map` which defaults to
 /// `{ lowercase: true }`. With lowercase set to true, the local part of the
 /// email address is lowercased for all domains; the hostname is always
 /// lowercased and the local part of the email address is always lowercased
 /// for hosts that are known to be case-insensitive (currently only GMail).
 /// Normalization follows special rules for known providers: currently,
 /// GMail addresses have dots removed in the local part and are stripped of
-/// tags (e.g. some.one+tag@gmail.com becomes someone@gmail.com) and all
-/// @googlemail.com addresses are normalized to @gmail.com.
+/// tags (e.g. `some.one+tag@gmail.com` becomes `someone@gmail.com`) and all
+/// `@googlemail.com` addresses are normalized to `@gmail.com`.
 String normalizeEmail(String email, [Map options]) {
   options = _merge(options, _default_normalize_email_options);
   if (isEmail(email) == false) {
