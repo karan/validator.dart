@@ -111,7 +111,7 @@ String escape(String str) {
 
 
 // canonicalize an email address
-String normalizeEmail(String email, Map options) {
+String normalizeEmail(String email, [Map options]) {
   options = _merge(options, default_normalize_email_options);
   if (isEmail(email) == false) {
       return '';

@@ -212,6 +212,29 @@ void testEscape() {
 }
 
 
+void testNormalizeEmail() {
+  test({
+    'sanitizer': s.normalizeEmail,
+    'args': [],
+    'expect': {
+      'test@me.com': 'test@me.com',
+      'some.name@gmail.com': 'somename@gmail.com',
+      'some.name@googleMail.com': 'somename@gmail.com',
+      'some.name+extension@gmail.com': 'somename@gmail.com',
+      'some.Name+extension@GoogleMail.com': 'somename@gmail.com',
+      'some.name.middleName+extension@gmail.com': 'somenamemiddlename@gmail.com',
+      'some.name.middleName+extension@GoogleMail.com': 'somenamemiddlename@gmail.com',
+      'some.name.midd.leNa.me.+extension@gmail.com': 'somenamemiddlename@gmail.com',
+      'some.name.midd.leNa.me.+extension@GoogleMail.com': 'somenamemiddlename@gmail.com',
+      'some.name+extension@unknown.com': 'some.name+extension@unknown.com',
+      'hans@m端ller.com': 'hans@m端ller.com',
+      'an invalid email address': '',
+      '': ''
+    }
+  });
+}
+
+
 void main() {
   testToString();
   testToDate();
@@ -223,6 +246,7 @@ void main() {
   testBlacklist();
   testStripLow();
   testEscape();
+  testNormalizeEmail();
 
   print('-------------------------------------');
   print('All tests in sanitizer.dart complete.');
