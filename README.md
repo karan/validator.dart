@@ -9,6 +9,12 @@ Port of [chriso's library](https://github.com/chriso/validator.js).
 
 ## Usage
 
+#### Documentation
+
+Complete documentation of the package is available at http://www.dartdocs.org/documentation/validator/0.0.7/index.html#validator/validator
+
+For a list of methods, refer to the sections below.
+
 #### 1. Depend on it
 
 Add this to your package's `pubspec.yaml` file:
