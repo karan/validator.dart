@@ -89,3 +89,10 @@ String whitelist(String str, String chars) {
 String blacklist(String str, String chars) {
   return str.replaceAll(new RegExp('[' + chars + ']+'), '');
 }
+
+
+// remove characters with a numerical value < 32 and 127
+String stripLow(String str, [bool keep_new_lines]) {
+  String chars = keep_new_lines == true ? '\x00-\x09\x0B\x0C\x0E-\x1F\x7F' : '\x00-\x1F\x7F';
+  return blacklist(str, chars);
+}
