@@ -74,6 +74,23 @@ Now in your Dart code, you can use:
 - **isVariableWidth(String str)** - check if the string contains a mixture of full and half-width chars.
 - **isSurrogatePair(String str)** - check if the string contains any surrogate pairs chars.
 - **isMongoId(String str)** - check if the string is a valid hex-encoded representation of a [MongoDB ObjectId][mongoid].
+- ***isMd5(String str)*** check if the string is a MD5 hash.
+- ***isMd4(String str)*** check if the string is a MD4 hash.
+- ***isSha1(String str)*** check if the string is a Sha1 hash.
+- ***isSha256(String str)*** check if the string is a Sha256 hash.
+- ***isSha384(String str)*** check if the string is a Sha384 hash.
+- ***isSha512(String str)*** check if the string is a Sha512 hash.
+- ***isRipemd128(String str)*** check if the string is a Ripemd128 hash.
+- ***isRipemd160(String str)*** check if the string is a Ripemd160 hash.
+- ***isTiger128(String str)*** check if the string is a Tiger128 hash.
+- ***isTiger160(String str)*** check if the string is a Tiger160 hash.
+- ***isTiger192(String str)*** check if the string is a Tiger192 hash.
+- ***isCrc32(String str)*** check if the string is a Crc32 hash.
+- ***isCrc32b(String str)*** check if the string is a Crc32b hash.
+- ***isPort(String str)*** check if the string is a valid port number.
+- ***isMACAddress(String str)*** check if the string is a MAC address.
+- ***isMobilePhone(String str)*** |check if the string is a is a mobile phone number.
+`['ar-AE', 'ar-DZ','ar-EG', 'ar-JO', 'ar-SA', 'ar-SY', 'cs-CZ', 'de-DE', 'da-DK', 'el-GR', 'en-AU', 'en-CA', 'en-GB', 'en-HK', 'en-IN',  'en-KE', 'en-NG', 'en-NZ', 'en-RW', 'en-SG', 'en-UG', 'en-US', 'en-TZ', 'en-ZA', 'en-ZM', 'en-PK', 'es-ES', 'et-EE', 'fa-IR', 'fi-FI', 'fr-FR', 'he-IL', 'hu-HU', 'it-IT', 'ja-JP', 'ko-KR', 'lt-LT', 'ms-MY', 'nb-NO', 'nn-NO', 'pl-PL', 'pt-PT', 'ro-RO', 'ru-RU', 'sk-SK', 'sr-RS', 'tr-TR', 'uk-UA', 'vi-VN', 'zh-CN', 'zh-HK', 'zh-TW']` OR 'any'. If 'any' is used, function will check if any of the locales match).
 
 ## Sanitizers
 
