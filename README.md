@@ -20,7 +20,7 @@ For a list of methods, refer to the sections below.
 Add this to your package's `pubspec.yaml` file:
 
     dependencies:
-      asynchronous_validator: ^1.0.0
+      asynchronous_validator: ^1.0.2
 
 #### 2. Install it
 
