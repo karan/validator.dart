@@ -1,9 +1,9 @@
-validator.dart
+asynchronous-validator
 =============
 
-[![Build Status](https://drone.io/github.com/karan/validator.dart/status.png)](https://drone.io/github.com/karan/validator.dart/latest)
-
 String validation and sanitization for Dart.
+
+Fork of [karan's validator.dart package](https://github.com/karan/validator.dart)
 
 Port of [chriso's library](https://github.com/chriso/validator.js).
 
@@ -20,21 +20,23 @@ For a list of methods, refer to the sections below.
 Add this to your package's `pubspec.yaml` file:
 
     dependencies:
-      validator: ">=0.0.4 <0.1.0"
+      asynchronous_validator: ^1.0.0
 
 #### 2. Install it
 
 You can install packages from the command line:
 
     $ pub get
+    
+Or if you use Flutter:
 
-Alternatively, your editor might support pub. Check the docs for your editor to learn more.
+    $ flutter packages get
 
 #### 3. Import it
 
 Now in your Dart code, you can use:
 
-    import 'package:validator/validator.dart';
+    import 'package:asynchronous_validator/validator.dart';
 
 ## Validators
 
@@ -74,6 +76,30 @@ Now in your Dart code, you can use:
 - **isVariableWidth(String str)** - check if the string contains a mixture of full and half-width chars.
 - **isSurrogatePair(String str)** - check if the string contains any surrogate pairs chars.
 - **isMongoId(String str)** - check if the string is a valid hex-encoded representation of a [MongoDB ObjectId][mongoid].
+
+## Asynchronous Validator
+
+Replace `is` prefix with `validate`. For example, replace `isEmail` with `validateEmail` to use asynchronous validator that returns a Future object.
+
+```dart
+validator.validateEmail('username@domain.io').then((validEmail) {
+  print('$validEmail is valid email address.');
+}).catchError((error) {
+  print(error);
+});
+```   
+
+### Custom Error Message
+
+You can use custom error message when using asynchronous validator. For example:
+
+```dart
+validator.validateEmail('not a valid email', errorMessage: 'Please insert a valid email address.').then((validEmail) {
+  print('$validEmail is valid email address.');
+}).catchError((error) {
+  print(error); // print : Please insert a valid email address.
+});
+```
 
 ## Sanitizers
 
