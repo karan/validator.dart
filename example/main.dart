@@ -1,8 +1,10 @@
-import 'validator.dart' as validator;
+import 'package:asynchronous_validator/validator.dart' as validator;
 
 main() {
-
-  validator.validateEmail('not a valid email', errorMessage: 'Please insert a valid email address.').then((validEmail) {
+  validator
+      .validateEmail('not a valid email',
+          errorMessage: 'Please insert a valid email address.')
+      .then((validEmail) {
     print('$validEmail is valid email address.');
   }).catchError((error) {
     print(error);
@@ -32,7 +34,9 @@ main() {
     print(error);
   });
 
-  validator.validateURL('https://rest-api.io/posts?limit=10&filter[status]=current').then((validUri) {
+  validator
+      .validateURL('https://rest-api.io/posts?limit=10&filter[status]=current')
+      .then((validUri) {
     print(validUri.toString());
   }).catchError((error) {
     print(error);
@@ -58,5 +62,4 @@ main() {
   }).catchError((error) {
     print(error);
   });
-
 }
