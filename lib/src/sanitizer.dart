@@ -1,4 +1,4 @@
-part of validator;
+part of asynchronous_validator;
 
 Map _default_normalize_email_options = {'lowercase': true};
 

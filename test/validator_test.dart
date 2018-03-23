@@ -1,6 +1,6 @@
 library validator_test;
 
-import 'package:asynchronous_validator/validator.dart' as v;
+import 'package:asynchronous_validator/asynchronous_validator.dart' as v;
 
 
 void test(Map options) {
@@ -924,6 +924,6 @@ void main() {
   testIsMongoId();
 
   print('-------------------------------------');
-  print('All tests in validator.dart complete.');
+  print('All tests in asynchronous_validator.dart complete.');
   print('-------------------------------------');
 }

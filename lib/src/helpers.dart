@@ -1,4 +1,4 @@
-part of validator;
+part of asynchronous_validator;
 
 // Helper functions for validator and sanitizer.
 

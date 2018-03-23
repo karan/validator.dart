@@ -1,4 +1,5 @@
-import 'package:asynchronous_validator/validator.dart' as validator;
+import 'package:asynchronous_validator/asynchronous_validator.dart'
+    as validator;
 
 main() {
   validator

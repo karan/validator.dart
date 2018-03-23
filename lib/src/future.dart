@@ -1,4 +1,4 @@
-part of validator;
+part of asynchronous_validator;
 
 Future<String> validateEmail(String str, {String errorMessage}) {
   if (isEmail(str)) {

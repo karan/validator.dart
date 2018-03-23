@@ -1,4 +1,4 @@
-library validator;
+library asynchronous_validator;
 
 import 'dart:convert';
 import 'dart:async';
