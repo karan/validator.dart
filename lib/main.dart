@@ -2,7 +2,7 @@ import 'validator.dart' as validator;
 
 main() {
 
-  validator.validateEmail('good').then((validEmail) {
+  validator.validateEmail('not a valid email', errorMessage: 'Please insert a valid email address.').then((validEmail) {
     print('$validEmail is valid email address.');
   }).catchError((error) {
     print(error);
