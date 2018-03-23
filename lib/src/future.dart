@@ -4,11 +4,12 @@ Future<String> validateEmail(String str, {String errorMessage}) {
   if (isEmail(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not a valid email address.');
+    return new Future.error(
+        errorMessage ?? '$str is not a valid email address.');
   }
 }
 
-Future<Uri> validateURL(String str, {Map options, String errorMessage}) {
+Future<String> validateURL(String str, {Map options, String errorMessage}) {
   if (isURL(str, options)) {
     return new Future(() => Uri.encodeFull(str));
   } else {
@@ -16,7 +17,7 @@ Future<Uri> validateURL(String str, {Map options, String errorMessage}) {
   }
 }
 
-Future<Uri> validateFQDN(String str, {Map options, String errorMessage}) {
+Future<String> validateFQDN(String str, {Map options, String errorMessage}) {
   if (isFQDN(str)) {
     return new Future(() => Uri.encodeFull(str));
   } else {
@@ -32,19 +33,21 @@ Future<String> validateIP(String str, {version, String errorMessage}) {
   }
 }
 
-Future<String>validateAlpha(String str, {String errorMessage}) {
+Future<String> validateAlpha(String str, {String errorMessage}) {
   if (isAlpha(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not only contains alphabet.');
+    return new Future.error(
+        errorMessage ?? '$str is not only contains alphabet.');
   }
 }
 
-Future<String>validateNumeric(String str, {String errorMessage}) {
+Future<String> validateNumeric(String str, {String errorMessage}) {
   if (isNumeric(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not only contains number.');
+    return new Future.error(
+        errorMessage ?? '$str is not only contains number.');
   }
 }
 
@@ -52,7 +55,8 @@ Future<String> validateAlphanumeric(String str, {String errorMessage}) {
   if (isAlphanumeric(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not only contains alphabet and number');
+    return new Future.error(
+        errorMessage ?? '$str is not only contains alphabet and number');
   }
 }
 
@@ -84,7 +88,8 @@ Future<String> validateLowercase(String str, {String errorMessage}) {
   if (isLowercase(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not only contains lowercase.');
+    return new Future.error(
+        errorMessage ?? '$str is not only contains lowercase.');
   }
 }
 
@@ -92,7 +97,8 @@ Future<String> validateUppercase(String str, {String errorMessage}) {
   if (isUppercase(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not only contains uppercase.');
+    return new Future.error(
+        errorMessage ?? '$str is not only contains uppercase.');
   }
 }
 
@@ -100,7 +106,8 @@ Future<int> validateInt(String str, {String errorMessage}) {
   if (isInt(str)) {
     return new Future(() => int.parse(str));
   } else {
-    return new Future.error(errorMessage ?? '$str is not a valid integer value.');
+    return new Future.error(
+        errorMessage ?? '$str is not a valid integer value.');
   }
 }
 
@@ -108,7 +115,8 @@ Future<double> validateFloat(String str, {String errorMessage}) {
   if (isFloat(str)) {
     return new Future(() => double.parse(str));
   } else {
-    return new Future.error(errorMessage ?? '$str is not a valid decimal value.');
+    return new Future.error(
+        errorMessage ?? '$str is not a valid decimal value.');
   }
 }
 
@@ -136,7 +144,8 @@ Future<String> validateNotNull(String str, {String errorMessage}) {
   }
 }
 
-Future<String> validateLength(String str, int min, {int max, String errorMessage}) {
+Future<String> validateLength(String str, int min,
+    {int max, String errorMessage}) {
   if (isLength(str, min, max)) {
     return new Future(() => str);
   } else {
@@ -144,7 +153,8 @@ Future<String> validateLength(String str, int min, {int max, String errorMessage
   }
 }
 
-Future<String> validateByteLength(String str, int min, {int max, String errorMessage}) {
+Future<String> validateByteLength(String str, int min,
+    {int max, String errorMessage}) {
   if (isByteLength(str, min, max)) {
     return new Future(() => str);
   } else {
@@ -168,26 +178,30 @@ Future<DateTime> validateDate(String str, {String errorMessage}) {
   }
 }
 
-Future<DateTime> validateAfter(String str, {DateTime after, String errorMessage}) {
+Future<DateTime> validateAfter(String str,
+    {DateTime after, String errorMessage}) {
   return validateDate(str).then((date) {
     var _after = after ?? new DateTime.now();
     if (date.isAfter(_after)) {
       return new Future(() => date);
     } else {
-      return new Future.error(errorMessage ?? '$str is not after ${_after.toIso8601String()}');
+      return new Future.error(
+          errorMessage ?? '$str is not after ${_after.toIso8601String()}');
     }
   }).catchError((error) {
     return new Future.error(error);
   });
 }
 
-Future<DateTime> validateBefore(String str, {DateTime before, String errorMessage}) {
+Future<DateTime> validateBefore(String str,
+    {DateTime before, String errorMessage}) {
   return validateDate(str).then((date) {
     var _before = before ?? new DateTime.now();
     if (date.isBefore(_before)) {
       return new Future(() => date);
     } else {
-      return new Future.error(errorMessage ?? '$str is not before ${_before.toIso8601String()}');
+      return new Future.error(
+          errorMessage ?? '$str is not before ${_before.toIso8601String()}');
     }
   }).catchError((error) {
     return new Future.error(error);
@@ -206,7 +220,8 @@ Future<String> validateCreditCard(String str, {String errorMessage}) {
   if (isCreditCard(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str is not a valid credit card number.');
+    return new Future.error(
+        errorMessage ?? '$str is not a valid credit card number.');
   }
 }
 
@@ -230,7 +245,8 @@ Future<String> validateMultibyte(String str, {String errorMessage}) {
   if (isMultibyte(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str doesn\'t contain one or more multibyte chars');
+    return new Future.error(
+        errorMessage ?? '$str doesn\'t contain one or more multibyte chars');
   }
 }
 
@@ -238,7 +254,8 @@ Future<String> validateAscii(String str, {String errorMessage}) {
   if (isAscii(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str not only contains ASCII chars.');
+    return new Future.error(
+        errorMessage ?? '$str not only contains ASCII chars.');
   }
 }
 
@@ -246,7 +263,8 @@ Future<String> validateFullWidth(String str, {String errorMessage}) {
   if (isFullWidth(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str doesn\'t have any full width characters.');
+    return new Future.error(
+        errorMessage ?? '$str doesn\'t have any full width characters.');
   }
 }
 
@@ -254,7 +272,8 @@ Future<String> validateHalfWidth(String str, {String errorMessage}) {
   if (isHalfWidth(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str doesn\'t have any half width characters.');
+    return new Future.error(
+        errorMessage ?? '$str doesn\'t have any half width characters.');
   }
 }
 
@@ -262,7 +281,8 @@ Future<String> validateVariableWidth(String str, {String errorMessage}) {
   if (isVariableWidth(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str doesn\'t have any full and half width characters.');
+    return new Future.error(errorMessage ??
+        '$str doesn\'t have any full and half width characters.');
   }
 }
 
@@ -270,7 +290,8 @@ Future<String> validateSurrogatePair(String str, {String errorMessage}) {
   if (isSurrogatePair(str)) {
     return new Future(() => str);
   } else {
-    return new Future.error(errorMessage ?? '$str doesn\'t have any surrogate pairs characters.');
+    return new Future.error(
+        errorMessage ?? '$str doesn\'t have any surrogate pairs characters.');
   }
 }
 
