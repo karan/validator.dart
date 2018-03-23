@@ -1,6 +1,6 @@
 library sanitizer_dart;
 
-import 'package:validator/validator.dart' as s;
+import 'package:asynchronous_validator/validator.dart' as s;
 
 
 void test(Map options) {

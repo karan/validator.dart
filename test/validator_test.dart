@@ -1,6 +1,6 @@
 library validator_test;
 
-import 'package:validator/validator.dart' as v;
+import 'package:asynchronous_validator/validator.dart' as v;
 
 
 void test(Map options) {
