@@ -9,6 +9,13 @@ packages/
 *.js_
 *.js.deps
 *.js.map
+*.packages
+
+# Or the files crated by any JetBrains IDE
+.idea/
+
+# Or the files created by XCode
+Generated.xcconfig
 
 # Include when developing application packages.
 pubspec.lock

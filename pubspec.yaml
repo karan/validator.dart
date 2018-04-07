@@ -1,8 +1,10 @@
-name: validator
-version: 0.0.7
-author: Karan Goel <karan@goel.io>
+name: asynchronous_validator
+version: 1.0.2
+authors:
+- Karan Goel <karan@goel.io>
+- Naufal Fachrian <naufalfachrian@gmail.com>
 description: String validation and sanitization for Dart.
-homepage: https://github.com/karan/validator.dart
-documentation: https://github.com/karan/validator.dart
-dependencies:
-  unittest: any
+homepage: https://github.com/naufalfachrian/dart-asynchronous-validator
+documentation: https://github.com/naufalfachrian/dart-asynchronous-validator
+environment:
+  sdk: '>=1.8.0 <2.0.0'
