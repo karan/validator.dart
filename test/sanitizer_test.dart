@@ -59,7 +59,7 @@ void testToFloat() {
       '1': 1.0,
       '2.': 2.0,
       '-1.4': -1.4,
-      'foo': double.NAN
+      'foo': double.nan
     }
   });
 }
@@ -72,7 +72,7 @@ void testToInt() {
     'expect': {
       '1.4': 1,
       '2.': 2,
-      'foo': double.NAN
+      'foo': double.nan
     }
   });
 }
