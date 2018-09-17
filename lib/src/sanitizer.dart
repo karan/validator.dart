@@ -27,7 +27,7 @@ double toFloat(String str) {
   try{
     return double.parse(str);
   } catch (e) {
-    return double.NAN;
+    return double.nan;
   }
 }
 
@@ -45,7 +45,7 @@ num toInt(String str, {int radix:10}) {
     try {
       return double.parse(str).toInt();
     } catch (e) {
-      return double.NAN;
+      return double.nan;
     }
   }
 }

@@ -1,8 +1,10 @@
 name: validator
-version: 0.0.7
+version: 0.0.10
 author: Karan Goel <karan@goel.io>
 description: String validation and sanitization for Dart.
 homepage: https://github.com/karan/validator.dart
+environment:
+  sdk: '>=1.20.1 <=2.1.0'
 documentation: https://github.com/karan/validator.dart
 dependencies:
-  unittest: any
+  test: any
